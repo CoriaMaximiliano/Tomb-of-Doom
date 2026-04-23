@@ -665,25 +665,19 @@ const Roadmap = () => {
           <div className="relative max-w-3xl space-y-5">
             <div className={docPill}>Documento · TOD - NFT</div>
             <h2 className="text-2xl font-black tracking-tight text-white md:text-3xl">
-              TOD: Arquitectura Económica y Whitepaper Estratégico
+              TOD: Arquitectura económica y whitepaper estratégico
             </h2>
+            <p className="text-lg font-semibold leading-snug text-orange-100/95 md:text-xl">
+              Sostenibilidad algorítmica y valor estructural de activos
+            </p>
             <div className="space-y-4 text-[15px] leading-relaxed text-slate-300 md:text-base">
               <p>
-                Este documento detalla la estructura finita de activos, las mecánicas de juego
-                balanceadas, los flujos de valor y el motor algorítmico que fortalece la
-                sostenibilidad de TOD frente a la volatilidad sistémica del entorno de la web 3.
-              </p>
-              <p>
-                El enfoque prioriza la{' '}
-                <span className="text-orange-100">escasez real</span>, la{' '}
+                Este documento detalla la infraestructura de activos finitos, las mecánicas de
+                equilibrio sistémico y el motor matemático que sustenta el ecosistema TOD. Nuestro
+                enfoque prioriza la <span className="text-orange-100">escasez real</span>, la{' '}
                 <span className="text-orange-100">meritocracia competitiva</span> y el{' '}
-                <span className="text-orange-100">rendimiento de los activos</span> para dueños de
-                token TOD, NFT, skins y posiciones en tablas clasificatorias (skill).
-              </p>
-              <p className="text-[13px] text-slate-400">
-                Los parámetros y fórmulas numéricas de este anexo se entienden{' '}
-                <span className="text-slate-300">en potencia</span>: línea base de diseño, calibrable
-                con datos reales de adopción y mercado.
+                <span className="text-orange-100">rendimiento de activos</span>, blindando la
+                economía frente a la volatilidad sistémica del entorno web3.
               </p>
             </div>
           </div>
@@ -694,65 +688,58 @@ const Roadmap = () => {
               <div className={wpSectionTitle}>
                 <span className="font-mono text-sm font-bold text-orange-400">1</span>
                 <h3 className="text-lg font-extrabold tracking-tight text-white md:text-xl">
-                  Suministro Génesis y distribución de activos
+                  Matriz de escasez y distribución génesis
                 </h3>
               </div>
               <p className="max-w-3xl text-sm leading-relaxed text-slate-300">
-                La escasez es el pilar innegociable de nuestra economía. El suministro total está
-                estrictamente limitado por tiers (niveles) para garantizar la exclusividad a largo
-                plazo.
+                La escasez es el pilar fundamental de nuestra economía. El suministro total está
+                estrictamente limitado por una jerarquía de tiers para garantizar la exclusividad y
+                la apreciación del valor a largo plazo.
               </p>
-              <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-7">
-                {[
-                  ['T1', '1.002'],
-                  ['T2', '502'],
-                  ['T3', '252'],
-                  ['T4', '127'],
-                  ['T5', '62'],
-                  ['T6', '32'],
-                  ['T7', '12'],
-                ].map(([t, n]) => (
-                  <div
-                    key={t}
-                    className="rounded-xl border border-zinc-600/45 bg-zinc-950/55 px-3 py-3 text-center shadow-[inset_0_1px_0_0_rgba(255,255,255,0.06)]"
-                  >
-                    <p className="text-[10px] font-bold uppercase tracking-widest text-slate-500">
-                      {t}
-                    </p>
-                    <p className="mt-1 font-mono text-lg font-bold text-white">{n}</p>
-                  </div>
-                ))}
+              <div className="overflow-x-auto rounded-2xl border border-zinc-600/50 bg-zinc-950/50 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)]">
+                <table className="w-full min-w-[min(100%,520px)] text-left text-[13px] text-slate-200">
+                  <thead>
+                    <tr className="border-b border-zinc-600/60 bg-zinc-900/85 text-[10px] font-bold uppercase tracking-widest text-slate-400">
+                      <th className="px-4 py-3">Tier</th>
+                      <th className="px-4 py-3">Suministro total</th>
+                      <th className="px-4 py-3">Notas de rareza</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-zinc-700/60">
+                    {[
+                      ['T1', '1.002', 'Base de la pirámide económica.'],
+                      ['T2', '502', 'Primer escalón de especialización.'],
+                      ['T3', '252', 'Alta demanda estratégica.'],
+                      ['T4', '127', 'Umbral de escasez institucional.'],
+                      ['T5', '62', 'Prestigio y exclusividad.'],
+                      ['T6', '32', 'Rareza extrema.'],
+                      ['T7', '12', 'Cénit del ecosistema TOD.'],
+                    ].map(([tier, sup, note]) => (
+                      <tr key={tier} className="bg-zinc-950/40">
+                        <td className="px-4 py-2.5 font-mono font-bold text-orange-200">{tier}</td>
+                        <td className="px-4 py-2.5 font-mono text-white">{sup}</td>
+                        <td className="px-4 py-2.5 text-slate-300">{note}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
               </div>
               <div className="grid gap-3.5 md:grid-cols-2">
                 <div className={wpCard}>
                   <p className="text-sm font-extrabold text-white">Reserva institucional</p>
                   <p className="mt-2 text-[13px] leading-relaxed text-slate-200">
-                    Se retiene el <span className="text-orange-200">10%</span> exclusivamente de los
-                    tiers 1 al 4 para financiar tesorería de torneos y recompensas del ecosistema.
-                    Los tiers 5, 6 y 7 quedan exentos de esta retención, maximizando su rareza.
-                  </p>
-                </div>
-                <div className={wpCard}>
-                  <p className="text-sm font-extrabold text-white">Cuenta de control (dev)</p>
-                  <p className="mt-2 text-[13px] leading-relaxed text-slate-200">
-                    La administración dispone de exactamente <span className="text-orange-200">2</span>{' '}
-                    unidades por tier para auditoría técnica y pruebas en entorno real, garantizando
-                    liquidez genética mínima (una pareja) para habilitar breeding en el futuro.
-                  </p>
-                </div>
-                <div className={wpCard}>
-                  <p className="text-sm font-extrabold text-white">Fase de liquidez</p>
-                  <p className="mt-2 text-[13px] leading-relaxed text-slate-200">
-                    Se libera el <span className="text-orange-200">50%</span> de los activos en la
-                    etapa Génesis para financiación inicial y despliegue operativo.
+                    Se retiene el <span className="text-orange-200">10%</span> únicamente de los tiers
+                    1 al 4 para financiar la tesorería de torneos. Los tiers 5, 6 y 7 están exentos,
+                    maximizando su escasez.
                   </p>
                 </div>
                 <div className={wpCard}>
                   <p className="text-sm font-extrabold text-white">Emisión programada</p>
                   <p className="mt-2 text-[13px] leading-relaxed text-slate-200">
-                    El <span className="text-orange-200">25%</span> restante se distribuye mediante
-                    subastas semestrales (inicio mediados de 2027, continuidad en 2028) para evitar
-                    shocks de oferta.
+                    El <span className="text-orange-200">50%</span> de los activos se libera en la
+                    etapa génesis. El <span className="text-orange-200">25%</span> restante se
+                    distribuirá mediante subastas semestrales (2027–2028) para prevenir shocks de
+                    oferta.
                   </p>
                 </div>
               </div>
@@ -763,45 +750,37 @@ const Roadmap = () => {
               <div className={wpSectionTitle}>
                 <span className="font-mono text-sm font-bold text-orange-400">2</span>
                 <h3 className="text-lg font-extrabold tracking-tight text-white md:text-xl">
-                  Balance competitivo (el fin del pay-to-win)
+                  Equilibrio competitivo (skill-over-capital)
                 </h3>
               </div>
               <p className="max-w-3xl text-sm leading-relaxed text-slate-300">
-                Rechazamos modelos donde el capital garantiza la victoria. El NFT es ventaja
-                competitiva y estratégica; el motor del éxito sigue siendo la habilidad (skill).
+                Rechazamos modelos donde el capital garantiza la victoria. El NFT es una ventaja
+                estratégica; el motor del éxito sigue siendo la habilidad del jugador.
               </p>
               <div className="grid gap-3.5 md:grid-cols-2">
                 <div className={wpCard}>
-                  <p className="text-sm font-extrabold text-white">Progresión secuencial</p>
+                  <p className="text-sm font-extrabold text-white">Progresión orgánica</p>
                   <p className="mt-2 text-[13px] leading-relaxed text-slate-200">
-                    Para desplegar una torre T7 hay que poseer y evolucionar la cadena completa de
-                    activos (T1 → T7), generando demanda orgánica constante sobre los tiers base.
+                    Para desplegar una torre T7 es necesario evolucionar la cadena completa (T1 →
+                    T7), generando una demanda constante sobre los activos base.
                   </p>
                 </div>
                 <div className={wpCard}>
-                  <p className="text-sm font-extrabold text-white">Meritocracia estricta</p>
+                  <p className="text-sm font-extrabold text-white">Asimetría táctica</p>
                   <p className="mt-2 text-[13px] leading-relaxed text-slate-200">
-                    Free-to-play opera con torres estándar que suben de nivel orgánicamente. Los NFT
-                    amplían variabilidad estratégica; un jugador gratuito muy hábil puede derrotar a
-                    un poseedor de T7.
+                    Los NFT poseen exclusividad en daño mágico. No obstante, los jugadores
+                    free-to-play pueden desplegar unidades con resistencia mágica, obligando al
+                    poseedor del NFT a gestionar sus recursos con criterio táctico.
                   </p>
                 </div>
-                <div className={wpCard}>
-                  <p className="text-sm font-extrabold text-white">Contrapeso táctico</p>
-                  <p className="mt-2 text-[13px] leading-relaxed text-slate-200">
-                    Las torres NFT tienen exclusividad del daño mágico. Los rivales pueden desplegar
-                    creeps con resistencia mágica, obligando al holder a gestionar recursos con
-                    criterio.
-                  </p>
-                </div>
-                <div className={wpCard}>
+                <div className={`${wpCard} md:col-span-2`}>
                   <p className="text-sm font-extrabold text-white">Composición elemental</p>
                   <p className="mt-2 text-[13px] leading-relaxed text-slate-200">
-                    Cada NFT tiene 5 partes que definen el multiplicador elemental (fuego, agua,
-                    roca): cada parte es 20% del ADN de daño. Un NFT puro (5× fuego) ejerce 100% daño
-                    de fuego y recibe un bono adicional del <span className="text-orange-200">5%</span>{' '}
-                    (único aumento extra de daño en NFT). Las configuraciones híbridas permiten
-                    cientos de estrategias.
+                    Cada NFT posee <span className="text-orange-200">5 partes de ADN</span>. Los
+                    ejemplares <span className="text-orange-200">puros</span> (5/5 de un mismo
+                    elemento) reciben un bono de sinergia del{' '}
+                    <span className="text-orange-200">5%</span>, premiando la especialización sin
+                    romper el balance del juego.
                   </p>
                 </div>
               </div>
@@ -812,25 +791,32 @@ const Roadmap = () => {
               <div className={wpSectionTitle}>
                 <span className="font-mono text-sm font-bold text-orange-400">3</span>
                 <h3 className="text-lg font-extrabold tracking-tight text-white md:text-xl">
-                  Protocolo de breeding y mercado de subastas (mid-2027)
+                  Protocolo de expansión y subastas
                 </h3>
               </div>
               <p className="max-w-3xl text-sm leading-relaxed text-slate-300">
-                A mediados de 2027 se activa la expansión demográfica de activos. Juntar dos torres
-                del mismo tier genera una nueva torre; los padres no se pierden pero tienen un
-                límite de <span className="text-orange-200">3 crías</span>. Atributos heredados con
-                factor de entropía del <span className="text-orange-200">5%</span> adicional por
-                parte para dificultar la clonación de meta-estrategias.
+                A mediados de 2027, la expansión demográfica pasará a manos de la comunidad mediante el
+                sistema de breeding.
               </p>
-              <div className={wpCard}>
-                <p className="text-sm font-extrabold text-white">Subastas cíclicas</p>
-                <p className="mt-2 text-[13px] leading-relaxed text-slate-200">
-                  El breeding no tiene costo fijo inflacionario: opera como mercado libre en{' '}
-                  <span className="text-orange-200">temporadas pares</span> (T2, T4, T6). Los
-                  usuarios depositan el token en un contrato inteligente; al cerrar la temporada, las
-                  pujas más altas obtienen el derecho de emisión. Las pujas perdedoras se reembolsan
-                  en total salvo fees de red.
-                </p>
+              <div className="grid gap-3.5 md:grid-cols-2">
+                <div className={wpCard}>
+                  <p className="text-sm font-extrabold text-white">Herencia y entropía</p>
+                  <p className="mt-2 text-[13px] leading-relaxed text-slate-200">
+                    El cruce de dos torres permite generar hasta <span className="text-orange-200">3</span>{' '}
+                    crías. Se aplica un factor de entropía del{' '}
+                    <span className="text-orange-200">5%</span> en los atributos para evitar la
+                    clonación masiva de estrategias ganadoras.
+                  </p>
+                </div>
+                <div className={wpCard}>
+                  <p className="text-sm font-extrabold text-white">Subastas cíclicas</p>
+                  <p className="mt-2 text-[13px] leading-relaxed text-slate-200">
+                    El breeding no tiene un costo inflacionario fijo; opera como un mercado libre en{' '}
+                    <span className="text-orange-200">temporadas pares</span>. Las pujas más altas
+                    obtienen el derecho de emisión, mientras que las pujas no ganadoras se reembolsan
+                    íntegramente.
+                  </p>
+                </div>
               </div>
             </div>
 
@@ -843,70 +829,33 @@ const Roadmap = () => {
                 </h3>
               </div>
               <p className="max-w-3xl text-sm leading-relaxed text-slate-300">
-                La emisión por breeding está gobernada por un sistema matemático orientado a la
-                supervivencia a largo plazo: amortigua picos de adopción (hype) y recorta con fuerza
-                ante caídas de interés. El índice de jugadores activos se amortiza sobre una ventana
-                móvil de <span className="text-orange-200">3 temporadas</span> (~7,5 meses). Si la
-                adopción crece de forma exponencial (ej. 100 → 1.000 usuarios), la emisión sube de
-                forma gradual; si la actividad cae, el sistema recorta la emisión de inmediato y de
-                forma abrupta.
+                La salud del ecosistema está gobernada por un sistema matemático diseñado para la
+                supervivencia a largo plazo: amortigua picos de especulación (hype) y recorta la oferta
+                ante contracciones de actividad.
               </p>
-              <pre className="overflow-x-auto rounded-2xl border border-zinc-600/50 bg-zinc-950/90 p-4 font-mono text-[11px] leading-relaxed text-slate-300 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)] md:text-xs">
-{`SISTEMA DE EMISIÓN NFT AUTORREGULADO (v1.0)
-
-Parámetros en potencia: beta, k, r_max, F y demás son línea base de diseño, calibrables con datos reales.
-
-Prioridad: Defensa de valor y resistencia a exploits
-=========================================================
-
-1. MÓDULO DE EMISIÓN POTENCIAL (Ep)
-Mide la presión de demanda real del ecosistema.
----------------------------------------------------------
-Ratio = ( (w1 * P avg) + (w2 * P s) ) / P ref
-
-Ep = (UA * Actividad) * ((min(1.25, Ratio)^beta) - 1)
-
-2. MÓDULO DE CONTROL DE INFLACIÓN (Ci)
-Actúa como techo físico para proteger la escasez.
----------------------------------------------------------
-EMA mint = (0.5 * Mint_t1) + (0.3 * Mint_t2) + (0.2 * Mint_t3)
-Ci = min( EMA mint * F, Supply * r max )
-
-3. MÓDULO DE AJUSTE POR MERCADO (Am)
-Freno de emergencia ante caídas de precio.
----------------------------------------------------------
-Am = max( 0, min( 1, Ratio )^k )
-
-4. FÓRMULA FINAL UNIFICADA (Mint)
----------------------------------------------------------
-Mint = max( 0, min( Ep, Ci ) ) * Am
-
-=========================================================
-PARÁMETROS RECOMENDADOS Y FUNCIONAMIENTO
-=========================================================
-beta  = 0.5 (suavizado de volatilidad)
-k     = 2.0 (penalización cuadrática en caídas)
-r_max = 0.05 (inflación máxima del 5% por temporada)
-F     = 2.0 (límite de aceleración de emisión)
-UA    = usuarios únicos con transacciones verificadas
-
-1) Ratio (termómetro): precio actual vs temporada anterior. >1 = mercado en expansión; <1 = freno.
-2) Ep (deseo): cuántos NFT nuevos exige la demanda; tope 1.25 como seguro contra burbujas.
-3) Ci (techo): límite macro basado en historial y r_max.
-4) Am (freno): caídas leves recortan en cuadrado; caídas severas pueden llevar el mint a cero.`}
-              </pre>
-              <div className={wpCard}>
-                <p className="text-sm font-extrabold text-white">Compromiso de transparencia real</p>
-                <p className="mt-2 text-[13px] leading-relaxed text-slate-200">
-                  Ningún modelo predice la irracionalidad humana a perpetuidad. Esta fórmula reacciona
-                  al presente integrando mercado, adopción y subastas en tiempo real; como todo
-                  sistema vivo, requerirá calibración. El compromiso no es dogmatizar una ecuación
-                  estática, sino mantener una economía sana: ajustes futuros solo tras análisis
-                  técnico profundo y con transparencia total. No buscamos la utopía de una fórmula
-                  perfecta, sino un blindaje pragmático que proteja el valor de los activos en
-                  escenarios impredecibles.
+              <div className="rounded-2xl border border-zinc-600/50 bg-zinc-950/90 p-5 font-mono text-sm text-slate-200 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)] md:text-base">
+                <p className="text-[10px] font-bold uppercase tracking-widest text-orange-200/90">
+                  Algoritmo de autorregulación
+                </p>
+                <p className="mt-3 text-center text-lg text-white md:text-xl">
+                  Mint = max(0, min(Ep, Ci)) · Am
                 </p>
               </div>
+              <ul className="max-w-3xl list-inside list-disc space-y-2 text-sm leading-relaxed text-slate-300 marker:text-orange-400">
+                <li>
+                  <span className="font-semibold text-slate-200">Emisión potencial (Ep):</span> mide
+                  la presión de demanda real basándose en usuarios activos y volumen de red.
+                </li>
+                <li>
+                  <span className="font-semibold text-slate-200">Control de inflación (Ci):</span>{' '}
+                  actúa como techo macroscópico basado en medias móviles para proteger la escasez.
+                </li>
+                <li>
+                  <span className="font-semibold text-slate-200">Ajuste por mercado (Am):</span> freno
+                  de emergencia ante caídas de precio. Una contracción en el mercado puede llevar la
+                  emisión de nuevos activos a cero.
+                </li>
+              </ul>
             </div>
 
             {/* 5 */}
@@ -914,57 +863,54 @@ UA    = usuarios únicos con transacciones verificadas
               <div className={wpSectionTitle}>
                 <span className="font-mono text-sm font-bold text-orange-400">5</span>
                 <h3 className="text-lg font-extrabold tracking-tight text-white md:text-xl">
-                  Distribución de valor y dividendos del ecosistema
+                  Distribución de valor y flujos del ecosistema
                 </h3>
               </div>
               <p className="max-w-3xl text-sm leading-relaxed text-slate-300">
-                <span className="font-semibold text-slate-200">Post–Temporada 1</span>, con NFT en
-                circulación y economía madura, adquirir un NFT en TOD es ser socio estructural: los
-                flujos siguientes distribuyen valor hacia tenedores según las reglas publicadas.
+                Poseer un NFT en TOD representa una participación estructural en los flujos
+                económicos del juego.
               </p>
               <div className="grid gap-3.5 md:grid-cols-2">
                 <div className={wpCard}>
-                  <p className="text-sm font-extrabold text-white">Mercado secundario (5% fee)</p>
+                  <p className="text-sm font-extrabold text-white">Mercado secundario (5%)</p>
                   <p className="mt-2 text-[13px] leading-relaxed text-slate-200">
-                    Cada venta secundaria destina <span className="text-orange-200">2,5%</span> a
-                    quema del token y <span className="text-orange-200">2,5%</span> a la pool de
-                    recompensas, repartida entre los <span className="text-orange-200">7 tiers</span>{' '}
-                    según <span className="text-orange-200">pesos relativos</span> del modelo (sin
-                    cifras fijas por holder en este texto: solo la tabla de pesos). Todos los NFT del
-                    juego, una vez <span className="text-orange-200">acuñados y con titular</span>,
-                    participan en la misma lógica; mientras un activo de cualquier tier{' '}
-                    <span className="text-orange-200">no esté minteado</span>, su proporcional
-                    acumulado en contabilidad se <span className="text-orange-200">quema</span> hasta
-                    que exista el NFT y un dueño real — misma regla para todos, sin trato privilegiado
-                    por “génesis” frente al resto.
+                    <span className="text-orange-200">2,5%</span> destinado a quema (deflación) y{' '}
+                    <span className="text-orange-200">2,5%</span> a la pool de recompensas de los
+                    holders.
                   </p>
                 </div>
                 <div className={wpCard}>
-                  <p className="text-sm font-extrabold text-white">Apuestas competitivas (10% fee)</p>
+                  <p className="text-sm font-extrabold text-white">Apuestas competitivas (10%)</p>
                   <p className="mt-2 text-[13px] leading-relaxed text-slate-200">
-                    Sobre el tramo que aplica post–Temporada 1: el ganador cede un{' '}
-                    <span className="text-orange-200">10%</span> del esquema acordado; de ese capital,{' '}
                     <span className="text-orange-200">5%</span> quema,{' '}
-                    <span className="text-orange-200">2,5%</span> a desarrollo técnico y{' '}
-                    <span className="text-orange-200">2,5%</span> a la pool de recompensas NFT
-                    (alineado al desglose macro del roadmap).
+                    <span className="text-orange-200">2,5%</span> desarrollo técnico y{' '}
+                    <span className="text-orange-200">2,5%</span> a la pool de recompensas.
                   </p>
                 </div>
                 <div className={wpCard}>
-                  <p className="text-sm font-extrabold text-white">Cosméticos y utilidades (7% fee)</p>
+                  <p className="text-sm font-extrabold text-white">Ventas in-game (7%)</p>
                   <p className="mt-2 text-[13px] leading-relaxed text-slate-200">
-                    Post–Temporada 1, ventas in-game: <span className="text-orange-200">2,5%</span> pool
-                    NFT,{' '}
+                    <span className="text-orange-200">2,5%</span> pool de recompensas,{' '}
                     <span className="text-orange-200">2,5%</span> quema y{' '}
                     <span className="text-orange-200">2%</span> tesorería de desarrollo.
                   </p>
                 </div>
                 <div className={wpCard}>
-                  <p className="text-sm font-extrabold text-white">Expansión comercial global</p>
+                  <p className="text-sm font-extrabold text-white">Expansión comercial</p>
                   <p className="mt-2 text-[13px] leading-relaxed text-slate-200">
-                    Post–Temporada 1, nuevas fuentes (publicidad, alianzas con Binance, Ronin, Pixels,
-                    etc.) derivan de forma irrevocable un <span className="text-orange-200">2,5%</span>{' '}
-                    hacia tenedores de NFT.
+                    El <span className="text-orange-200">2,5%</span> de ingresos por publicidad o
+                    alianzas globales se deriva directamente a los tenedores de NFT.
+                  </p>
+                </div>
+                <div className={`${wpCard} md:col-span-2`}>
+                  <p className="text-sm font-extrabold text-white">
+                    Justicia contable y eficiencia de tesorería
+                  </p>
+                  <p className="mt-2 text-[13px] leading-relaxed text-slate-200">
+                    Todos los activos participan de esta lógica. Mientras un NFT de cualquier tier no
+                    haya sido minteado, los beneficios proporcionales que le corresponderían se
+                    desvían automáticamente a la tesorería de premios, fortaleciendo la bolsa de
+                    recompensas para los jugadores activos.
                   </p>
                 </div>
               </div>
@@ -979,47 +925,28 @@ UA    = usuarios únicos con transacciones verificadas
                 </h3>
               </div>
               <p className="max-w-3xl text-sm leading-relaxed text-slate-300">
-                Además del flujo de la pool, los tenedores tienen multiplicador de recompensa en
-                tokens al cerrar partidas (tope <span className="text-orange-200">10 partidas
-                diarias</span>).
+                Los tenedores de NFT cuentan con un multiplicador de recompensa en tokens por partida
+                (hasta <span className="text-orange-200">10 partidas diarias</span>), sustentado por
+                una reserva de <span className="text-orange-200">225.000</span> tokens.
               </p>
-              <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-                <div className="rounded-xl border border-orange-500/25 bg-orange-500/10 p-4 md:col-span-2">
+              <div className="grid gap-3 sm:grid-cols-2">
+                <div className="rounded-xl border border-orange-500/25 bg-orange-500/10 p-4">
                   <p className="text-[10px] font-bold uppercase tracking-widest text-orange-200/90">
-                    Tesorería asignada
+                    Multiplicadores por tier
                   </p>
-                  <p className="mt-2 font-mono text-2xl font-bold text-white">225.000</p>
-                  <p className="mt-2 text-[13px] text-slate-200">
-                    Tokens reservados solo para esta función; proyección de autonomía ~2 años de
-                    operaciones. Agotada la reserva, cesa la emisión directa de este tramo.
-                  </p>
-                </div>
-                <div className={`${wpCard} md:col-span-2`}>
-                  <p className="text-sm font-extrabold text-white">Multiplicador por tier (fin de partida)</p>
-                  <p className="mt-2 font-mono text-[13px] leading-relaxed text-slate-200">
-                    T1 +1% · T2 +2% · T3 +3% · T4 +10% · T5 +15% · T6 +20% · T7 +30%
+                  <p className="mt-3 font-mono text-[13px] leading-relaxed text-slate-200">
+                    T1: +1% · T2: +2% · T3: +3%
+                    <br />
+                    T4: +10% · T5: +15% · T6: +20% · T7: +30%
                   </p>
                 </div>
-              </div>
-              <div className={wpCard}>
-                <p className="text-sm font-extrabold text-white">Expansión monetaria futura (no garantizada)</p>
-                <p className="mt-2 text-[13px] leading-relaxed text-slate-200">
-                  Si el sistema requiere expansión monetaria real —no por especulación— podría
-                  evaluarse migración o integración de un nuevo token de utilidad preservando derechos
-                  y jerarquías de la etapa inicial. Lo <span className="text-orange-200">sí garantizado</span>{' '}
-                  es la participación de estos NFT en el <span className="text-orange-200">2,5%</span>{' '}
-                  de flujos descritos.
-                </p>
-              </div>
-              <div className="rounded-2xl border border-zinc-500/50 bg-zinc-950/70 p-4">
-                <p className="text-sm font-extrabold text-white">NFT secundario tipo ticket de partida</p>
-                <p className="mt-2 text-[13px] leading-relaxed text-slate-200">
-                  Existirá un NFT funcional de partida: no accede a los beneficios anteriores; sirve
-                  para crearse y quemarse al generar partidas, permitiendo fijar por contrato el costo
-                  de emisión y mantener ingresos mixtos (ej. <span className="text-orange-200">50% RON
-                  / 50% TOD</span>) o ajustes futuros en costos de partida y nuevos sistemas de
-                  apuesta.
-                </p>
+                <div className={wpCard}>
+                  <p className="text-sm font-extrabold text-white">Enfoque del modelo</p>
+                  <p className="mt-2 text-[13px] leading-relaxed text-slate-200">
+                    Este modelo no busca una fórmula estática, sino un blindaje pragmático que proteja
+                    el valor de los activos en cualquier escenario de mercado.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
