@@ -18,18 +18,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          lfs: true
 
       - uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: npm
 
-      - name: Verificar hero video (Git LFS, no puntero)
-        run: |
-          test -f public/hero-pantalla-inicial.ogv
-          test "$(wc -c < public/hero-pantalla-inicial.ogv)" -gt 1000000
+      - name: Verificar hero GIF
+        run: test -f public/hero-pantalla-inicial.gif
 
       - name: Install dependencies
         run: npm ci

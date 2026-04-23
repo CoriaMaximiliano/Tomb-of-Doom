@@ -27,9 +27,8 @@ sitio en GitHub Pages, que suele ser `/<nombre-del-repo>/`.
 2. Probar en local: `npm install` (primera vez) y `npm run dev`.
 3. Commit y push a `main` del repo Tomb-of-Doom.
 4. GitHub Actions ejecuta `.github/workflows/deploy.yml`:
-   - Job `build`: checkout con Git LFS (`lfs: true`), `npm ci` → `npm run build` → sube artefacto `dist`.
+   - Job `build`: `npm ci` → `npm run build` → sube artefacto `dist`.
    - Job `deploy`: publica ese artefacto en el entorno `github-pages`.
-   - Los `.ogv` del hero van con Git LFS (`.gitattributes`); hace falta tener Git LFS instalado al clonar/pushear.
 5. Esperar a que el workflow termine en verde; recargar la URL (a veces Ctrl+F5).
 
 Si el workflow falla en "Verificar dist", revisar que existan `dist/index.html`,
@@ -47,16 +46,16 @@ src/App.tsx
   - CASI TODO el contenido visible del roadmap está aquí (un solo componente
     grande `Roadmap`). Es el archivo principal para textos, hero, secciones,
     pills, tablas conceptuales, etc.
-  - Hero (columna derecha): `<video>` con `public/hero-pantalla-inicial.ogv`
-    (bucle, muted, playsInline, sin poster para no confundir con la imagen estática).
+  - Hero (columna derecha): `<img>` con `public/hero-pantalla-inicial.gif` (animación
+    en bucle; funciona en cualquier navegador). Para regenerar el GIF desde un `.ogv`
+    en `public/hero-pantalla-inicial.ogv`: `npm run build:hero-gif` (requiere `ffmpeg-static`).
 
 src/index.css
   - Estilos globales / Tailwind.
 
 public/
-  - Assets estáticos: `hero-pantalla-inicial.ogv` (video hero, Git LFS). La PNG
-    `tod-hero-gameplay.png` puede seguir en el repo para otros usos, pero el hero
-    ya no la usa como poster.
+  - `hero-pantalla-inicial.gif` — hero animado del roadmap (commit normal en Git).
+  - `tod-hero-gameplay.png` — captura estática (opcional / otros usos).
 
 src/data/roadmapData.ts
   - Si en el futuro se externalizan capítulos/datos, podrían vivir aquí; hoy
@@ -83,8 +82,8 @@ vite.config.ts
 - Título de la pestaña del navegador:
     index.html → <title>...</title>
 
-- Accesibilidad del hero en video:
-    src/App.tsx → `aria-label` del <video> del hero (buscar `HERO_VIDEO_SRC`).
+- Texto alternativo del hero animado:
+    src/App.tsx → atributo `alt` del <img> del hero (buscar `HERO_GIF_SRC`).
 
 - Pills / badges superiores ("Documento · TOD", etc.):
     src/App.tsx → mismo header que el h1.
@@ -106,10 +105,11 @@ verdad (este proyecto Vite es el que despliega Pages).
 --------------------------------------------------------------------------------
 6) COMANDOS ÚTILES
 --------------------------------------------------------------------------------
-  npm ci          # instalación limpia (CI usa esto)
-  npm run dev     # desarrollo local, base "/" 
-  npm run build   # genera dist/ con base de producción (Tomb-of-Doom/)
-  npm run preview # previsualizar el build localmente
+  npm ci               # instalación limpia (CI usa esto)
+  npm run dev          # desarrollo local, base "/"
+  npm run build        # genera dist/ con base de producción (Tomb-of-Doom/)
+  npm run preview      # previsualizar el build localmente
+  npm run build:hero-gif  # regenera `public/hero-pantalla-inicial.gif` desde el `.ogv` en public/
 
 --------------------------------------------------------------------------------
 7) NOTAS PARA IA / COLABORADORES

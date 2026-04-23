@@ -21,3 +21,6 @@ dist-ssr
 *.sln
 *.sw?
 .env
+
+# Fuente pesada solo para regenerar el hero GIF localmente (no subir a Git).
+public/hero-pantalla-inicial.ogv
