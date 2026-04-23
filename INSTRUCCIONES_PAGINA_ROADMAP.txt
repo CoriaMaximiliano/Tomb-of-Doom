@@ -1,0 +1,121 @@
+================================================================================
+INSTRUCCIONES — Sitio roadmap "Tomb of Doom" (GitHub Pages)
+================================================================================
+Propósito: documentar qué es esta carpeta, cómo se publica y dónde editar para
+que otra persona o IA pueda modificar la página sin adivinar la estructura.
+
+--------------------------------------------------------------------------------
+1) QUÉ ES ESTE PROYECTO
+--------------------------------------------------------------------------------
+- SPA en React + Vite + Tailwind + lucide-react.
+- Contenido principal: roadmap / documentación económica del juego (TOD).
+- Se despliega automáticamente a GitHub Pages al hacer push a la rama `main`.
+
+Repositorio remoto (origen del deploy):
+  https://github.com/CoriaMaximiliano/Tomb-of-Doom
+
+URL pública (Pages):
+  https://coriamaximiliano.github.io/Tomb-of-Doom/
+
+IMPORTANTE: el `base` de Vite en producción DEBE coincidir con el path del
+sitio en GitHub Pages, que suele ser `/<nombre-del-repo>/`.
+
+--------------------------------------------------------------------------------
+2) CÓMO SE PUBLICA (sin pasos manuales en el servidor)
+--------------------------------------------------------------------------------
+1. Editar archivos en esta carpeta local (por ejemplo `src/App.tsx`).
+2. Probar en local: `npm install` (primera vez) y `npm run dev`.
+3. Commit y push a `main` del repo Tomb-of-Doom.
+4. GitHub Actions ejecuta `.github/workflows/deploy.yml`:
+   - Job `build`: `npm ci` → `npm run build` → sube artefacto `dist`.
+   - Job `deploy`: publica ese artefacto en el entorno `github-pages`.
+5. Esperar a que el workflow termine en verde; recargar la URL (a veces Ctrl+F5).
+
+Si el workflow falla en "Verificar dist", revisar que existan `dist/index.html`,
+carpeta `dist/assets`, y que `dist/index.html` NO apunte a `/src/main.tsx`
+(solo rutas a assets empaquetados).
+
+--------------------------------------------------------------------------------
+3) ARCHIVOS CLAVE PARA MODIFICAR LA PÁGINA
+--------------------------------------------------------------------------------
+index.html
+  - Etiqueta <title> (título de la pestaña del navegador).
+  - Meta básicos; favicon en public/ según corresponda.
+
+src/App.tsx
+  - CASI TODO el contenido visible del roadmap está aquí (un solo componente
+    grande `Roadmap`). Es el archivo principal para textos, hero, secciones,
+    pills, tablas conceptuales, etc.
+  - Imagen del hero: constante `HERO_GAMEPLAY_SRC` apunta a
+    `public/tod-hero-gameplay.png` vía `import.meta.env.BASE_URL`.
+
+src/index.css
+  - Estilos globales / Tailwind.
+
+public/
+  - Assets estáticos servidos tal cual (ej. `tod-hero-gameplay.png`).
+
+src/data/roadmapData.ts
+  - Si en el futuro se externalizan capítulos/datos, podrían vivir aquí; hoy
+    conviene buscar en App.tsx primero.
+
+src/components/*.tsx
+  - Pueden existir piezas reutilizables; la página "monolítica" actual vive en
+    App.tsx. Antes de editar un componente, buscar si App.tsx lo importa.
+
+vite.config.ts
+  - `repoBase` (o `base` en producción): path base del sitio.
+    Debe ser exactamente `/Tomb-of-Doom/` mientras el repo se llame así en
+    GitHub. Si renombrás el repo en GitHub, actualizá este valor y volvé a
+    desplegar.
+
+--------------------------------------------------------------------------------
+4) CAMBIOS TÍPICOS (dónde tocar)
+--------------------------------------------------------------------------------
+- Título grande del hero (nombre del juego en la portada):
+    src/App.tsx → bloque <h1> cerca del inicio del layout (líneas pueden moverse
+    con el tiempo; buscar texto "Tomb of" / "Doom" o el subtítulo
+    "Arquitectura económica y roadmap de desarrollo").
+
+- Título de la pestaña del navegador:
+    index.html → <title>...</title>
+
+- Texto de accesibilidad de la captura del juego:
+    src/App.tsx → atributo `alt` del <img> del hero (buscar `alt="` cerca de
+    HERO_GAMEPLAY_SRC).
+
+- Pills / badges superiores ("Documento · TOD", etc.):
+    src/App.tsx → mismo header que el h1.
+
+- Contenido de capítulos del roadmap:
+    App.tsx contiene estructuras tipo `RoadmapChapter` / arrays de secciones;
+    buscar por títulos en español o por strings únicos.
+
+--------------------------------------------------------------------------------
+5) DUPLICADO EN OTRO WORKSPACE (opcional)
+--------------------------------------------------------------------------------
+En el monorepo del juego (Godot) a veces existe una copia del componente de
+roadmap en:
+  tower-defense/RoadmapTOD.tsx
+Si se mantiene esa copia para bolt.new u otro uso, al cambiar branding o textos
+graves conviene sincronizar manualmente con este repo o unificar fuente de
+verdad (este proyecto Vite es el que despliega Pages).
+
+--------------------------------------------------------------------------------
+6) COMANDOS ÚTILES
+--------------------------------------------------------------------------------
+  npm ci          # instalación limpia (CI usa esto)
+  npm run dev     # desarrollo local, base "/" 
+  npm run build   # genera dist/ con base de producción (Tomb-of-Doom/)
+  npm run preview # previsualizar el build localmente
+
+--------------------------------------------------------------------------------
+7) NOTAS PARA IA / COLABORADORES
+--------------------------------------------------------------------------------
+- No confundir este repo con el juego Godot: aquí solo está el sitio estático
+  generado por Vite.
+- Cualquier enlace interno o recurso debe respetar `import.meta.env.BASE_URL`
+  en producción para que funcione bajo subpath `/Tomb-of-Doom/`.
+- Tras cambios visibles, siempre: commit → push main → verificar Actions → URL.
+
+Fin del documento.
