@@ -16,12 +16,12 @@ import {
 
 /**
  * Roadmap — Tomb of Doom (TOD)
- * Pegá este archivo en bolt.new (React + Tailwind + lucide-react).
+ * Fuente única del sitio: repo Tomb-of-Doom. Ver INSTRUCCIONES_PAGINA_ROADMAP.txt
  *
- * Hero: vídeo `hero-pantalla-inicial.mp4` en `public/` (duración completa; GIF largo puede cortarse).
+ * Hero: vídeo `hero-pantalla-inicial.mp4` (H.264, duración completa; el GIF largo se corta
+ * en muchos navegadores). Desde `.ogv`: `npm run build:hero-mp4` (opcional GIF: `build:hero-gif`).
  */
-const baseUrl =
-  (import.meta as ImportMeta & { env?: { BASE_URL?: string } }).env?.BASE_URL ?? '/';
+const baseUrl = import.meta.env.BASE_URL;
 const HERO_MP4_SRC = `${baseUrl}hero-pantalla-inicial.mp4`;
 
 type RoadmapTone = 'amber' | 'violet' | 'cyan' | 'emerald';
@@ -67,8 +67,8 @@ Ep = (UA * Actividad) * ((min(1.25, Ratio)^beta) - 1)
 2. MÓDULO DE CONTROL DE INFLACIÓN (Ci)
 Actúa como techo físico para proteger la escasez.
 ---------------------------------------------------------
-EMA_mint = (0.5 * Mint_t1) + (0.3 * Mint_t2) + (0.2 * Mint_t3)
-Ci = min( EMA_mint * F, Supply * r_max )
+EMA mint = (0.5 * Mint_t1) + (0.3 * Mint_t2) + (0.2 * Mint_t3)
+Ci = min( EMA mint * F, Supply * r max )
 
 3. MÓDULO DE AJUSTE POR MERCADO (Am)
 Freno de emergencia ante caídas de precio.
@@ -96,23 +96,8 @@ UA    = Usuarios únicos con transacciones verificadas
 
 4) Módulo Am (El Freno): Defensa agresiva. Caídas leves de precio generan recortes cuadráticos en la emisión; caídas severas paralizan el minteo a cero.
 
-=========================================================
-ANEXO NUMÉRICO — SUMINISTRO FIJO POR TIER (v1.0)
-=========================================================
-Σ NFT (tope de diseño) = 1.002 + 502 + 252 + 127 + 62 + 32 + 12 = 1.989
-
-Reserva institucional (10% solo sobre T1–T4):
-  Cupo T1–T4 = 1.883  →  Reserva = 0,10 × 1.883 = 188,3 NFT
-  Saldo orientado a circulación primaria ≈ 1.989 − 188,3 = 1.800,7 NFT
-
-Calendario porcentual sobre Σ = 1.989 (coherente con emisión programada):
-  Génesis:     0,50 × 1.989 = 994,5 NFT
-  Subastas:    0,25 × 1.989 = 497,25 NFT
-  Protocolo:   0,25 × 1.989 = 497,25 NFT
-  (994,5 + 497,25 + 497,25 = 1.989)
-
 Un Compromiso de Transparencia Real:
-Siendo sinceros: ni el mejor modelo económico puede predecir la irracionalidad humana a perpetuidad. La fórmula actual es extremadamente robusta porque no intenta adivinar el futuro, sino que reacciona al presente integrando datos de mercado, adopción y subastas en tiempo real. Sin embargo, como todo sistema vivo, requerirá calibración. Mi compromiso no es mantener una fórmula matemática estática por capricho, sino garantizar una economía sana. Dejo esto en claro: no soy futurólogo; opero con datos fácticos. Por ello, cualquier ajuste futuro será resultado de un análisis técnico profundo y será ejecutado con total transparencia. No buscamos la utopía de una "fórmula perfecta", buscamos un blindaje pragmático que proteja el valor de sus activos incluso en los escenarios más impredecibles.`;
+Siendo sinceros: ni el mejor modelo económico puede predecir la irracionalidad humana a perpetuidad. La fórmula actual es extremadamente robusta porque no intenta adivinar el futuro, sino que reacciona al presente integrando datos de mercado, adopción y subastas en tiempo real. Sin embargo, como todo sistema vivo, requerirá calibración. Mi compromiso no es mantener una fórmula matemática estática por capricho, sino garantizar una economía sana. Dejo esto en claro, No soy futurólogo; opero con datos fácticos. Por ello, cualquier ajuste futuro será resultado de un análisis técnico profundo y será ejecutado con total transparencia. No buscamos la utopía de una "fórmula perfecta", buscamos un blindaje pragmático que proteja el valor de sus activos incluso en los escenarios más impredecibles.`;
 
 const Roadmap = () => {
   const chapters: RoadmapChapter[] = [
@@ -487,7 +472,7 @@ const Roadmap = () => {
                   </span>
                   Alpha cerrada · 0% — próximo
                 </p>
-                <p className="mt-3 text-xs leading-relaxed text-slate-300">
+                  <p className="mt-3 text-xs leading-relaxed text-slate-300">
                   Objetivo: auditar servidores y calibrar el anti-abuso antes de abrir al público.
                   Pre-Temporada 1 con entrada en escrow (10 RON) y puntos de ranking (1.000 victoria /
                   600 derrota) hacia el TGE.
@@ -796,62 +781,6 @@ const Roadmap = () => {
                   </tbody>
                 </table>
               </div>
-
-              <div
-                className={`${wpCard} border-orange-500/30 bg-gradient-to-br from-orange-500/10 via-zinc-950/80 to-zinc-950/90`}
-              >
-                <p className="text-sm font-extrabold text-white">Desglose matemático de emisión NFT</p>
-                <p className="mt-2 text-[13px] leading-relaxed text-slate-200">
-                  <span className="font-semibold text-orange-100">Tope agregado por diseño.</span>{' '}
-                  Suma de cupos por tier (suministro máximo teórico antes de políticas de reserva):
-                </p>
-                <p className="mt-3 rounded-xl border border-zinc-600/50 bg-zinc-950/80 px-4 py-3 font-mono text-[12px] leading-relaxed text-slate-100 md:text-[13px]">
-                  Σ NFT = 1.002 + 502 + 252 + 127 + 62 + 32 + 12 ={' '}
-                  <span className="text-orange-200">1.989 NFT</span>
-                </p>
-                <p className="mt-3 text-[13px] leading-relaxed text-slate-200">
-                  <span className="font-semibold text-orange-100">Reserva institucional (tiers T1–T4).</span>{' '}
-                  Se retiene el <span className="text-orange-200">10%</span> únicamente sobre el cupo
-                  de los tiers base e intermedio (financiamiento de tesorería de torneos). Tiers T5–T7
-                  quedan fuera de este recorte para maximizar escasez en la cúspide.
-                </p>
-                <p className="mt-2 rounded-xl border border-zinc-600/50 bg-zinc-950/80 px-4 py-3 font-mono text-[12px] leading-relaxed text-slate-100 md:text-[13px]">
-                  Cupo T1–T4 = 1.002 + 502 + 252 + 127 = 1.883
-                  <br />
-                  Reserva = 0,10 × 1.883 = <span className="text-orange-200">188,3 NFT</span>
-                  <br />
-                  Saldo orientado a circulación primaria ≈ 1.989 − 188,3 ={' '}
-                  <span className="text-orange-200">1.800,7 NFT</span>
-                </p>
-                <p className="mt-3 text-[13px] leading-relaxed text-slate-200">
-                  <span className="font-semibold text-orange-100">Calendario de salida (sobre el tope
-                  Σ = 1.989).</span> Distribución porcentual coherente con la tarjeta «Emisión
-                  programada»:
-                </p>
-                <ul className="mt-2 list-inside list-disc space-y-1.5 text-[13px] leading-relaxed text-slate-200 marker:text-orange-400">
-                  <li>
-                    Génesis: 0,50 × 1.989 = <span className="font-mono text-orange-100">994,5 NFT</span>{' '}
-                    (etapa inicial).
-                  </li>
-                  <li>
-                    Subastas semestrales: 0,25 × 1.989 ={' '}
-                    <span className="font-mono text-orange-100">497,25 NFT</span> (calendarización
-                    2027–2028).
-                  </li>
-                  <li>
-                    Protocolo (eventos, expansión, colchón): 0,25 × 1.989 ={' '}
-                    <span className="font-mono text-orange-100">497,25 NFT</span>.
-                  </li>
-                </ul>
-                <p className="mt-3 text-[12px] leading-relaxed text-slate-400">
-                  Nota: la reserva del 10% (solo T1–T4) y el calendario 50/25/25% son ejes distintos
-                  del diseño; su acoplamiento exacto en contrato puede ordenar prioridades de mint sin
-                  superar el tope Σ. Los valores decimales son desglose contable; la tokenización
-                  final puede redondear a enteros. La emisión dinámica por temporada sigue el motor de
-                  la sección 4 (Mint = max(0, min(Ep, Ci)) · Am).
-                </p>
-              </div>
-
               <div className="grid gap-3.5 md:grid-cols-2">
                 <div className={wpCard}>
                   <p className="text-sm font-extrabold text-white">Reserva institucional</p>
@@ -864,13 +793,10 @@ const Roadmap = () => {
                 <div className={wpCard}>
                   <p className="text-sm font-extrabold text-white">Emisión programada</p>
                   <p className="mt-2 text-[13px] leading-relaxed text-slate-200">
-                    Sobre el cupo total de la matriz: el <span className="text-orange-200">50%</span>{' '}
-                    se libera en <span className="text-orange-200">génesis</span>. Un{' '}
-                    <span className="text-orange-200">25%</span> adicional se distribuye en{' '}
-                    <span className="text-orange-200">subastas semestrales</span> (2027–2028) para
-                    amortiguar shocks de oferta. El <span className="text-orange-200">25%</span>{' '}
-                    final queda bajo control del protocolo (eventos, calendario de expansión y
-                    colchón operativo).
+                    El <span className="text-orange-200">50%</span> de los activos se libera en la
+                    etapa génesis. El <span className="text-orange-200">25%</span> restante se
+                    distribuirá mediante subastas semestrales (2027–2028) para prevenir shocks de
+                    oferta.
                   </p>
                 </div>
               </div>
@@ -979,7 +905,7 @@ const Roadmap = () => {
                 </li>
                 <li>
                   <span className="font-semibold text-slate-200">Control de inflación (Ci):</span>{' '}
-                  actúa como techo macroeconómico basado en medias móviles para proteger la escasez.
+                  actúa como techo macroscópico basado en medias móviles para proteger la escasez.
                 </li>
                 <li>
                   <span className="font-semibold text-slate-200">Ajuste por mercado (Am):</span> freno
@@ -1030,7 +956,7 @@ const Roadmap = () => {
                   <p className="text-sm font-extrabold text-white">Expansión comercial</p>
                   <p className="mt-2 text-[13px] leading-relaxed text-slate-200">
                     El <span className="text-orange-200">2,5%</span> de ingresos por publicidad o
-                    alianzas globales se destina directamente a los tenedores de NFT.
+                    alianzas globales se deriva directamente a los tenedores de NFT.
                   </p>
                 </div>
                 <div className={`${wpCard} md:col-span-2`}>
@@ -1040,7 +966,7 @@ const Roadmap = () => {
                   <p className="mt-2 text-[13px] leading-relaxed text-slate-200">
                     Todos los activos participan de esta lógica. Mientras un NFT de cualquier tier no
                     haya sido minteado, los beneficios proporcionales que le corresponderían se
-                    redirigen automáticamente a la tesorería de premios, fortaleciendo la bolsa de
+                    desvían automáticamente a la tesorería de premios, fortaleciendo la bolsa de
                     recompensas para los jugadores activos.
                   </p>
                 </div>
@@ -1068,7 +994,7 @@ const Roadmap = () => {
                   <p className="mt-3 font-mono text-[13px] leading-relaxed text-slate-200">
                     T1: +1% · T2: +2% · T3: +3%
                     <br />
-                    T4: +10% · T5: +15% · T6: +20% · T7: +30%
+                    T4: +10% · T5: +15% · T6: +20% · T7: +30%%
                   </p>
                 </div>
                 <div className={wpCard}>

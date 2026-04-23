@@ -107,24 +107,21 @@ Archivo que realmente despliega el roadmap en este repo:
   - Es el archivo que debe coincidir con lo que querés publicar. El CI hace
     `npm run build` a partir de ESTE árbol.
 
-Copia en el workspace del juego Godot (NO es el deploy por sí sola):
-  <ruta del monorepo>/tower-defense/RoadmapTOD.tsx
-  - Mismo contenido de referencia que a veces se edita en Cursor junto al
-    proyecto del juego.
-  - Si solo se modifica ese archivo y NO se copia a `src/App.tsx` y NO se hace
-    push a `main`, la página pública NO cambia. Eso fue la causa histórica de
-    “los cambios no llegan”.
+Copia duplicada en el proyecto Godot (ELIMINADA a propósito):
+  Antes existía tower-defense/RoadmapTOD.tsx junto al juego; generaba la
+  confusión de editar “el roadmap” ahí y que github.io no cambiara.
+  Ya no está: usá solo `src/App.tsx` de este repo, o el puntero
+  tower-defense/ROADMAP_WEB_LEEME.txt si abrís el juego en Cursor.
 
-Otra carpeta local que puede existir (opcional, no es el repo de Pages):
-  tomb-of-doom-web/
-  - Si existe como proyecto Vite aparte, también hay que commitear/pushear
-    ESE repo si fuera el que conecta a Pages. En la práctica acordado:
-    el repo que publica es Tomb-of-Doom (esta carpeta “Rout map listo”).
+tomb-of-doom-web/ (si lo tenés en disco):
+  No publica Pages salvo que tenga su propio remoto y workflow. Para evitar
+  otra copia divergente, su `src/App.tsx` se puede mantener igual que el de
+  acá solo como espejo local; la verdad publicada sigue siendo este repo.
 
 --------------------------------------------------------------------------------
 5bis) CÓMO ACTUALIZAR LA PÁGINA “COMO AHORA” (pasos concretos)
 --------------------------------------------------------------------------------
-Opción A — Editar directo lo que publica (recomendado si solo importa la web):
+Publicar cambios en la web (único flujo):
   1. Abrir y editar:  src/App.tsx  (y si aplica index.html, public/, vite.config.ts)
   2. En la raíz de ESTE proyecto:  npm run dev   → probar en http://localhost:5173/
   3.  npm run build   → verificar que no rompe
@@ -132,19 +129,9 @@ Opción A — Editar directo lo que publica (recomendado si solo importa la web)
   5. En GitHub → pestaña Actions → esperar workflow en verde
   6. Abrir la URL pública con Ctrl+F5 si el navegador cachea
 
-Opción B — Trabajar primero en tower-defense/RoadmapTOD.tsx y luego publicar:
-  1. Editar:  tower-defense/RoadmapTOD.tsx
-  2. Copiar ese archivo SOBRE el de deploy (PowerShell ejemplo, ajustar rutas):
-       Copy-Item -Path "...\tower-defense\RoadmapTOD.tsx" `
-         -Destination "...\Rout map listo\src\App.tsx" -Force
-     (El contenido debe ser el componente completo; el entry sigue importando
-      `./App.tsx` desde main.tsx.)
-  3. Desde la raíz de ESTE repo (Rout map listo):  npm run build
-  4.  git add src/App.tsx  →  commit  →  git push origin main
-  5. Verificar Actions y la URL como en el paso 6 de la opción A.
-
 Qué NO alcanza para publicar:
-  - Guardar RoadmapTOD.tsx en tower-defense sin copiar a `src/App.tsx` y sin push.
+  - Editar cualquier copia del roadmap fuera de este repo sin commit/push
+    a `main` en Tomb-of-Doom.
   - Correr `npm run build` solo en local sin subir el commit a `main`.
   - Editar otro clon del repo que no sea el que tiene `origin` apuntando a
     CoriaMaximiliano/Tomb-of-Doom y push a `main`.
@@ -183,9 +170,8 @@ Qué NO alcanza para publicar:
 - Antes de decir “listo”, comprobar que el archivo tocado es `src/App.tsx` de
   ESTE clon y que existió `git push origin main` exitoso; si no, la respuesta
   “no se ve en github.io” es esperable.
-- Si el usuario abre `tower-defense/RoadmapTOD.tsx` en el editor, recordar que
-  es copia hermana: ofrecer copiar a `src/App.tsx` + push o editar `App.tsx`
-  directamente.
+- Ese archivo ya no existe: si alguien lo busca, indicar `ROADMAP_WEB_LEEME.txt`
+  en tower-defense y editar `src/App.tsx` en este repo.
 - Mantener este TXT actualizado cuando cambie el flujo (otro branch, otro
   archivo principal, o import de `RoadmapTOD.tsx` separado en lugar de todo en
   App.tsx).
