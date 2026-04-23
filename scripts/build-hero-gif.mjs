@@ -1,6 +1,9 @@
 /**
  * Genera `public/hero-pantalla-inicial.gif` desde `public/hero-pantalla-inicial.ogv`
- * — colores más vivos (eq + paleta 256) y bucle más largo (~22 s).
+ * — **toda la duración** del video de entrada (sin `-t`), colores vivos (eq + paleta 256).
+ *
+ * El FPS y el ancho bajan un poco respecto a un clip corto para que el GIF completo
+ * (~80–90 s) no supere fácilmente ~100 MB en el repo.
  */
 import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
@@ -13,12 +16,10 @@ const root = path.join(__dirname, '..');
 const input = path.join(root, 'public', 'hero-pantalla-inicial.ogv');
 const output = path.join(root, 'public', 'hero-pantalla-inicial.gif');
 
-/** Segundos de clip a incluir en el GIF (más = archivo más grande). */
-const DURATION_SEC = 22;
-/** FPS del GIF (equilibrio suavidad / peso). */
-const FPS = 11;
+/** FPS del GIF (más bajo = menos peso con videos largos). */
+const FPS = 8;
 /** Ancho en px (mantiene 16:9). */
-const WIDTH = 768;
+const WIDTH = 720;
 
 if (!ffmpegPath) {
   console.error('ffmpeg-static: binario no encontrado');
@@ -29,14 +30,10 @@ if (!fs.existsSync(input)) {
   process.exit(1);
 }
 
-// eq: más saturación y contraste. Paleta 256 + full + Floyd-Steinberg = colores más vivos y menos “lavado”.
 const vf = `fps=${FPS},scale=${WIDTH}:-1:flags=lanczos,eq=saturation=1.48:contrast=1.08:brightness=0.02,split[s0][s1];[s0]palettegen=max_colors=256:stats_mode=full[p];[s1][p]paletteuse=dither=floyd_steinberg`;
 
-const r = spawnSync(
-  ffmpegPath,
-  ['-y', '-i', input, '-t', String(DURATION_SEC), '-an', '-vf', vf, output],
-  { stdio: 'inherit' }
-);
+// Sin `-t`: se codifica el .ogv entero (duración total del archivo).
+const r = spawnSync(ffmpegPath, ['-y', '-i', input, '-an', '-vf', vf, output], { stdio: 'inherit' });
 
 if (r.status !== 0) {
   console.error('ffmpeg terminó con código', r.status);
