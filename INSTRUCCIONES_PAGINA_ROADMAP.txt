@@ -109,7 +109,7 @@ verdad (este proyecto Vite es el que despliega Pages).
   npm run dev          # desarrollo local, base "/"
   npm run build        # genera dist/ con base de producción (Tomb-of-Doom/)
   npm run preview      # previsualizar el build localmente
-  npm run build:hero-gif  # regenera `public/hero-pantalla-inicial.gif` desde el `.ogv` en public/
+  npm run build:hero-gif  # regenera el GIF (~22 s, colores vivos); ajustá duración/eq en `scripts/build-hero-gif.mjs`
 
 --------------------------------------------------------------------------------
 7) NOTAS PARA IA / COLABORADORES

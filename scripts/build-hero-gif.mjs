@@ -1,6 +1,6 @@
 /**
  * Genera `public/hero-pantalla-inicial.gif` desde `public/hero-pantalla-inicial.ogv`
- * (bucle visual, sin audio, ~10 s máx. para mantener el peso razonable).
+ * — colores más vivos (eq + paleta 256) y bucle más largo (~22 s).
  */
 import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
@@ -13,6 +13,13 @@ const root = path.join(__dirname, '..');
 const input = path.join(root, 'public', 'hero-pantalla-inicial.ogv');
 const output = path.join(root, 'public', 'hero-pantalla-inicial.gif');
 
+/** Segundos de clip a incluir en el GIF (más = archivo más grande). */
+const DURATION_SEC = 22;
+/** FPS del GIF (equilibrio suavidad / peso). */
+const FPS = 11;
+/** Ancho en px (mantiene 16:9). */
+const WIDTH = 768;
+
 if (!ffmpegPath) {
   console.error('ffmpeg-static: binario no encontrado');
   process.exit(1);
@@ -22,12 +29,12 @@ if (!fs.existsSync(input)) {
   process.exit(1);
 }
 
-const vf =
-  'fps=10,scale=720:-1:flags=lanczos,split[s0][s1];[s0]palettegen=128:stats_mode=single[p];[s1][p]paletteuse=dither=bayer';
+// eq: más saturación y contraste. Paleta 256 + full + Floyd-Steinberg = colores más vivos y menos “lavado”.
+const vf = `fps=${FPS},scale=${WIDTH}:-1:flags=lanczos,eq=saturation=1.48:contrast=1.08:brightness=0.02,split[s0][s1];[s0]palettegen=max_colors=256:stats_mode=full[p];[s1][p]paletteuse=dither=floyd_steinberg`;
 
 const r = spawnSync(
   ffmpegPath,
-  ['-y', '-i', input, '-t', '10', '-an', '-vf', vf, output],
+  ['-y', '-i', input, '-t', String(DURATION_SEC), '-an', '-vf', vf, output],
   { stdio: 'inherit' }
 );
 
