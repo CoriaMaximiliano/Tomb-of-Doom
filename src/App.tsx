@@ -10,6 +10,8 @@ import {
   Target,
   GitBranch,
   Scale,
+  ExternalLink,
+  Calculator,
 } from 'lucide-react';
 
 /**
@@ -48,6 +50,69 @@ type RoadmapChapter = {
   sections: RoadmapSection[];
   icon: React.ReactNode;
 };
+
+/** Texto del desplegable «Desglose matemático de emisión NFT» (panel lateral). */
+const DESGLOSE_MATEMATICO_EMISION_DOC = `SISTEMA DE EMISIÓN NFT AUTORREGULADO (v1.0)
+
+Prioridad: Defensa de Valor y Resistencia a Exploits
+=========================================================
+
+1. MÓDULO DE EMISIÓN POTENCIAL (Ep)
+Mide la presión de demanda real del ecosistema.
+---------------------------------------------------------
+Ratio = ( (w1 * P avg) + (w2 * P s) ) / P ref
+
+Ep = (UA * Actividad) * ((min(1.25, Ratio)^beta) - 1)
+
+2. MÓDULO DE CONTROL DE INFLACIÓN (Ci)
+Actúa como techo físico para proteger la escasez.
+---------------------------------------------------------
+EMA_mint = (0.5 * Mint_t1) + (0.3 * Mint_t2) + (0.2 * Mint_t3)
+Ci = min( EMA_mint * F, Supply * r_max )
+
+3. MÓDULO DE AJUSTE POR MERCADO (Am)
+Freno de emergencia ante caídas de precio.
+---------------------------------------------------------
+Am = max( 0, min( 1, Ratio )^k )
+
+4. FÓRMULA FINAL UNIFICADA (Mint)
+---------------------------------------------------------
+Mint = max( 0, min( Ep, Ci ) ) * Am
+
+=========================================================
+PARÁMETROS RECOMENDADOS Y FUNCIONAMIENTO
+=========================================================
+beta  = 0.5 (Suavizado de volatilidad)
+k     = 2.0 (Penalización cuadrática en caídas)
+r_max = 0.05 (Inflación máxima del 5% por temporada)
+F     = 2.0 (Límite de aceleración de emisión)
+UA    = Usuarios únicos con transacciones verificadas
+
+1) El "Ratio" (El Termómetro): Compara el precio actual contra el de la temporada pasada. Si es >1, el mercado crece; si es <1, la emisión se frena.
+
+2) Módulo Ep (El Deseo): Calcula cuántos NFTs nuevos requiere la demanda. El Cap del 1.25 actúa como seguro contra burbujas irracionales.
+
+3) Módulo Ci (El Techo): Límite macroeconómico inquebrantable basado en el historial y r_max.
+
+4) Módulo Am (El Freno): Defensa agresiva. Caídas leves de precio generan recortes cuadráticos en la emisión; caídas severas paralizan el minteo a cero.
+
+=========================================================
+ANEXO NUMÉRICO — SUMINISTRO FIJO POR TIER (v1.0)
+=========================================================
+Σ NFT (tope de diseño) = 1.002 + 502 + 252 + 127 + 62 + 32 + 12 = 1.989
+
+Reserva institucional (10% solo sobre T1–T4):
+  Cupo T1–T4 = 1.883  →  Reserva = 0,10 × 1.883 = 188,3 NFT
+  Saldo orientado a circulación primaria ≈ 1.989 − 188,3 = 1.800,7 NFT
+
+Calendario porcentual sobre Σ = 1.989 (coherente con emisión programada):
+  Génesis:     0,50 × 1.989 = 994,5 NFT
+  Subastas:    0,25 × 1.989 = 497,25 NFT
+  Protocolo:   0,25 × 1.989 = 497,25 NFT
+  (994,5 + 497,25 + 497,25 = 1.989)
+
+Un Compromiso de Transparencia Real:
+Siendo sinceros: ni el mejor modelo económico puede predecir la irracionalidad humana a perpetuidad. La fórmula actual es extremadamente robusta porque no intenta adivinar el futuro, sino que reacciona al presente integrando datos de mercado, adopción y subastas en tiempo real. Sin embargo, como todo sistema vivo, requerirá calibración. Mi compromiso no es mantener una fórmula matemática estática por capricho, sino garantizar una economía sana. Dejo esto en claro: no soy futurólogo; opero con datos fácticos. Por ello, cualquier ajuste futuro será resultado de un análisis técnico profundo y será ejecutado con total transparencia. No buscamos la utopía de una "fórmula perfecta", buscamos un blindaje pragmático que proteja el valor de sus activos incluso en los escenarios más impredecibles.`;
 
 const Roadmap = () => {
   const chapters: RoadmapChapter[] = [
@@ -334,8 +399,8 @@ const Roadmap = () => {
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-orange-400/35 to-transparent" />
       </div>
 
-      <div className="relative mx-auto w-full max-w-[min(100%,1440px)] px-4 py-10 md:px-6 md:py-14">
-        <div className="min-w-0 max-w-6xl">
+      <div className="relative mx-auto flex w-full max-w-[min(100%,1440px)] flex-col gap-10 px-4 py-10 md:px-6 md:py-14 xl:flex-row xl:items-start xl:gap-10 2xl:gap-12">
+        <div className="order-2 min-w-0 flex-1 xl:order-1 xl:max-w-6xl">
         <header className="mb-14 md:mb-20">
           {/* Grid: misma altura en lg; pills abajo en la columna izquierda para no “flotar” en medio */}
           <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:items-stretch lg:gap-10">
@@ -1018,6 +1083,62 @@ const Roadmap = () => {
           </div>
         </section>
         </div>
+
+        <aside
+          id="enlaces-oficiales"
+          className="order-1 flex w-full max-w-[220px] shrink-0 flex-col self-center xl:self-start xl:order-2 xl:sticky xl:top-8 xl:max-w-none xl:w-48 2xl:w-52"
+          aria-label="Enlaces oficiales"
+        >
+          <div className="relative flex min-h-[min(72vh,520px)] w-full flex-col overflow-hidden rounded-2xl border border-orange-500/35 bg-gradient-to-b from-zinc-900/95 via-zinc-950/98 to-[#120a18] p-4 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.08),0_20px_60px_-20px_rgba(249,115,22,0.12)] ring-1 ring-orange-500/15 xl:min-h-[calc(100dvh-6rem)] xl:p-3.5">
+            <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-orange-400/40 to-transparent opacity-80" />
+            <p className="text-[10px] font-extrabold uppercase tracking-[0.18em] text-orange-200/90">
+              Enlaces
+            </p>
+
+            <nav className="mt-4 flex flex-col gap-2" aria-label="Redes y comunidad">
+              <a
+                href="https://discord.gg/PPfADgzK"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-2 rounded-lg border border-[#5865F2]/40 bg-[#5865F2]/10 px-2.5 py-2.5 text-xs font-semibold text-slate-100 no-underline transition-[border-color,background-color,box-shadow] hover:border-[#5865F2]/70 hover:bg-[#5865F2]/18 hover:shadow-[0_0_20px_-8px_rgba(88,101,242,0.4)]"
+              >
+                <span className="grid h-8 w-8 shrink-0 place-items-center rounded-md bg-[#5865F2]/25 text-sm font-bold text-white">
+                  D
+                </span>
+                <span className="min-w-0 flex-1 truncate">Discord</span>
+                <ExternalLink className="h-3.5 w-3.5 shrink-0 text-slate-300 opacity-60 transition group-hover:opacity-100" />
+              </a>
+              <a
+                href="https://x.com/TombofDoomDOT"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-2 rounded-lg border border-zinc-500/45 bg-zinc-950/70 px-2.5 py-2.5 text-xs font-semibold text-slate-100 no-underline transition-[border-color,background-color,box-shadow] hover:border-slate-400/55 hover:bg-zinc-900/85 hover:shadow-[0_0_18px_-10px_rgba(255,255,255,0.1)]"
+              >
+                <span className="grid h-8 w-8 shrink-0 place-items-center rounded-md bg-zinc-800 text-[10px] font-black tracking-tight text-white">
+                  X
+                </span>
+                <span className="min-w-0 flex-1 truncate">X</span>
+                <ExternalLink className="h-3.5 w-3.5 shrink-0 text-slate-300 opacity-60 transition group-hover:opacity-100" />
+              </a>
+
+              <details className="rounded-lg border border-orange-500/35 bg-zinc-950/75 text-left transition-[border-color,box-shadow] open:border-orange-400/45 open:shadow-[0_0_20px_-10px_rgba(249,115,22,0.2)]">
+                <summary className="flex cursor-pointer list-none items-center gap-2 px-2.5 py-2.5 text-xs font-semibold text-slate-100 outline-none marker:content-none [&::-webkit-details-marker]:hidden">
+                  <span className="grid h-8 w-8 shrink-0 place-items-center rounded-md bg-orange-500/20 text-orange-100">
+                    <Calculator className="h-4 w-4" aria-hidden />
+                  </span>
+                  <span className="min-w-0 flex-1 leading-snug">Desglose matemático de emisión NFT</span>
+                </summary>
+                <div className="max-h-[min(70vh,480px)] overflow-y-auto overscroll-contain border-t border-orange-500/20 bg-[#0a0c12]/95 px-2 py-2">
+                  <pre className="whitespace-pre-wrap break-words font-sans text-[9px] leading-relaxed text-slate-300">
+                    {DESGLOSE_MATEMATICO_EMISION_DOC}
+                  </pre>
+                </div>
+              </details>
+            </nav>
+
+            <div className="mt-3 min-h-[1px] flex-1" aria-hidden />
+          </div>
+        </aside>
       </div>
     </div>
   );
