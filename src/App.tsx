@@ -70,12 +70,21 @@ const Roadmap = () => {
           ],
         },
         {
-          title: 'Liquidez del duelo (RON)',
-          lead: 'El pozo es el corazón del loop competitivo; el fee del 10% sostiene el diseño macro.',
+          title: 'Entrada Pre–Temporada 1 (RON)',
+          lead: 'Cada jugador deposita 10 RON por partida en esta fase; el loop competitivo alimenta desarrollo y la tabla clasificatoria hacia el TGE.',
+          metrics: [
+            { kicker: 'Entrada', value: '10 RON', detail: 'Por jugador y partida en Pre–Temporada 1 (dos wallets distintas en el match). El desglose on-chain del escrow sigue las reglas del contrato desplegado (p. ej. 0 % ganador / 100 % feeRecipient en la variante MatchRON de prueba).' },
+            { kicker: 'Victoria', value: '1.000 pts', detail: 'Puntos de clasificación que suman al ranking global de la pre-temporada.' },
+            { kicker: 'Derrota', value: '600 pts', detail: 'Reconocimiento por participar y cerrar la partida; todos acumulan hacia el reparto proporcional.' },
+          ],
+        },
+        {
+          title: 'Liquidez del duelo y fee (macro)',
+          lead: 'Post–Temporada 1 el fee del pozo vuelve al modelo maduro; en Pre–Temporada 1 la prioridad es datos, ranking y acceso al TGE.',
           items: [
             {
-              bold: 'Protocolo de apuestas',
-              text: 'Los jugadores aportan liquidez en RON. El ganador se lleva el 90% del pozo. El 10% restante es sumidero económico: ancla antiinflacionaria del ecosistema.',
+              bold: 'Protocolo de apuestas (modelo maduro)',
+              text: 'Tras Pre–Temporada 1: el ganador se lleva el 90% del pozo; el 10% restante alimenta el diseño macro (quema, liquidez, pool NFT y desarrollo según el desglose publicado).',
             },
             {
               bold: 'Distribución del fee (10% del pozo)',
@@ -84,11 +93,15 @@ const Roadmap = () => {
           ],
         },
         {
-          title: 'Meritocracia y primer tramo de TOD',
+          title: 'Tabla clasificatoria TGE, referidos y compra vinculada a la subasta',
           items: [
             {
+              bold: 'Tabla TGE por victorias de referidos',
+              text: 'Para el evento de generación de tokens (TGE), una tabla clasificatoria basada exclusivamente en el rendimiento de victorias de los referidos: las recompensas fluyen hacia quienes fortalecen la red competitiva, con 100 puntos por cada victoria que logren tus referidos. A ese ranking se asignan 50.000 TOD (reparto según puntos en el universo elegible y reglas publicadas antes del cierre).',
+            },
+            {
               bold: 'Airdrop y acceso preferente',
-              text: '100.000 TOD repartidos entre el top 100 de la clasificación. Otros 100.000 TOD con opción de compra para quienes lideren el ranking semanal (según posición); el precio será la media de la última subasta, no el más bajo. El 10% del millón inicial por meritocracia (puntos semanales acumulados) se mantiene igual.',
+              text: 'Otros 50.000 TOD con opción de compra como antes: precio al promedio de la subasta de salida del token (no al mínimo). El 10% del millón inicial por meritocracia (puntos semanales acumulados) se mantiene igual: 100.000 TOD, al margen de la tabla de referidos.',
             },
           ],
         },
@@ -181,16 +194,22 @@ const Roadmap = () => {
         },
         {
           title: 'Primera distribución (1.000.000 TOD)',
-          lead: 'Los remanentes de cada mecanismo se re-subastan.',
+          lead: 'Los remanentes de cada mecanismo se re-subastan. Pre–Temporada 1: entrada 10 RON; puntos de partida 1.000 / 600; tabla TGE por referidos (100 pts por victoria de referido) y opción de compra al promedio de la subasta.',
           metrics: [
             { kicker: 'Subasta', value: '80%', detail: '800.000 TOD · mejor postor en RON.' },
             {
-              kicker: 'Ranking',
-              value: '10%',
+              kicker: 'Clasificación (referidos · TGE)',
+              value: '5%',
               detail:
-                '100.000 TOD · opción de compra para líderes al precio medio de la última subasta (no al mínimo).',
+                '50.000 TOD · tabla por victorias de referidos; 100 puntos por victoria de referido.',
             },
-            { kicker: 'Meritocracia', value: '10%', detail: '100.000 TOD · puntos semanales acumulados.' },
+            {
+              kicker: 'Opción de compra',
+              value: '5%',
+              detail:
+                '50.000 TOD · precio medio (promedio) de la subasta de salida del token, no al mínimo.',
+            },
+            { kicker: 'Meritocracia', value: '10%', detail: '100.000 TOD · puntos semanales acumulados (sin cambios).' },
           ],
         },
         {
@@ -421,8 +440,9 @@ const Roadmap = () => {
                   </span>
                   Alpha Cerrada
                 </p>
-                <p className="mt-3 text-xs leading-relaxed text-slate-300">
-                  Auditoría de servidores, protocolo PvP con apuestas en RON y calibración del
+                  <p className="mt-3 text-xs leading-relaxed text-slate-300">
+                  Auditoría de servidores, protocolo PvP (entrada Pre–Temporada 1: 10 RON por
+                  jugador; victoria 1.000 pts / derrota 600 pts hacia tabla y TGE) y calibración del
                   motor de emparejamiento y anti-abuso antes de apertura pública.
                 </p>
               </div>
