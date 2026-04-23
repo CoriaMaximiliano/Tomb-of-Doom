@@ -937,7 +937,7 @@ const Roadmap = () => {
                   <p className="mt-3 font-mono text-[13px] leading-relaxed text-slate-200">
                     T1: +1% · T2: +2% · T3: +3%
                     <br />
-                    T4: +10% · T5: +15% · T6: +20% · T7: +30%
+                    T4: +10% · T5: +15% · T6: +20% · T7: +30%%
                   </p>
                 </div>
                 <div className={wpCard}>
