@@ -1,8 +1,8 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
-// GitHub Pages (repo project): https://<user>.github.io/defenders-of-the-tomb-TOD-/
-const repoBase = '/defenders-of-the-tomb-TOD-/';
+// GitHub Pages (repo project): https://<user>.github.io/tomb-of-doom/
+const repoBase = '/tomb-of-doom/';
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
