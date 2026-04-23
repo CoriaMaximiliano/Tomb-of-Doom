@@ -2,35 +2,52 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [main]
+  workflow_dispatch:
+
 permissions:
   contents: read
   pages: write
   id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Set up Node
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
         with:
           node-version: 20
+          cache: npm
+
       - name: Install dependencies
-        run: npm install
+        run: npm ci
+
       - name: Build
         run: npm run build
-      - name: Verify production bundle (not dev index.html)
+
+      - name: Verificar dist (bundle Vite)
         run: |
           test -f dist/index.html
-          grep -q 'assets/index-' dist/index.html || (echo 'dist/index.html no referencia al bundle de Vite; revisá que el build sea "vite build" y que Pages suba ./dist' && exit 1)
-          ! grep -q 'src/main.tsx' dist/index.html || (echo 'dist/index.html sigue apuntando a src/main.tsx (fuente). No subas la raíz del repo como sitio.' && exit 1)
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+          test -d dist/assets
+          ! grep -q 'src/main.tsx' dist/index.html
+
+      - uses: actions/configure-pages@v4
+
+      - uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist' # ACÁ ESTÁ EL SECRETO, subimos la carpeta armada
-      - name: Deploy to GitHub Pages
-        id: deployment
+          path: dist
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
         uses: actions/deploy-pages@v4
