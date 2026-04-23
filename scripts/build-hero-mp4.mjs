@@ -13,8 +13,8 @@ const root = path.join(__dirname, '..');
 const input = path.join(root, 'public', 'hero-pantalla-inicial.ogv');
 const output = path.join(root, 'public', 'hero-pantalla-inicial.mp4');
 
-/** Ancho máximo (16:9). */
-const MAX_W = 1280;
+/** Ancho máximo (16:9). 1024 + CRF más alto → hero suele quedar bajo ~50 MB (Git/Pages). */
+const MAX_W = 1024;
 
 if (!ffmpegPath) {
   console.error('ffmpeg-static: binario no encontrado');
@@ -39,7 +39,7 @@ const args = [
   '-preset',
   'medium',
   '-crf',
-  '21',
+  '24',
   '-pix_fmt',
   'yuv420p',
   '-movflags',
