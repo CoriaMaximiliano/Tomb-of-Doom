@@ -27,8 +27,9 @@ sitio en GitHub Pages, que suele ser `/<nombre-del-repo>/`.
 2. Probar en local: `npm install` (primera vez) y `npm run dev`.
 3. Commit y push a `main` del repo Tomb-of-Doom.
 4. GitHub Actions ejecuta `.github/workflows/deploy.yml`:
-   - Job `build`: `npm ci` → `npm run build` → sube artefacto `dist`.
+   - Job `build`: checkout con Git LFS (`lfs: true`), `npm ci` → `npm run build` → sube artefacto `dist`.
    - Job `deploy`: publica ese artefacto en el entorno `github-pages`.
+   - Los `.ogv` del hero van con Git LFS (`.gitattributes`); hace falta tener Git LFS instalado al clonar/pushear.
 5. Esperar a que el workflow termine en verde; recargar la URL (a veces Ctrl+F5).
 
 Si el workflow falla en "Verificar dist", revisar que existan `dist/index.html`,
@@ -46,14 +47,15 @@ src/App.tsx
   - CASI TODO el contenido visible del roadmap está aquí (un solo componente
     grande `Roadmap`). Es el archivo principal para textos, hero, secciones,
     pills, tablas conceptuales, etc.
-  - Imagen del hero: constante `HERO_GAMEPLAY_SRC` apunta a
-    `public/tod-hero-gameplay.png` vía `import.meta.env.BASE_URL`.
+  - Hero (columna derecha): `<video>` con `public/hero-pantalla-inicial.ogv`
+    (bucle, muted, playsInline) y `poster` en `public/tod-hero-gameplay.png`.
 
 src/index.css
   - Estilos globales / Tailwind.
 
 public/
-  - Assets estáticos servidos tal cual (ej. `tod-hero-gameplay.png`).
+  - Assets estáticos: `hero-pantalla-inicial.ogv` (video hero, Git LFS),
+    `tod-hero-gameplay.png` (poster mientras carga el video).
 
 src/data/roadmapData.ts
   - Si en el futuro se externalizan capítulos/datos, podrían vivir aquí; hoy
@@ -80,9 +82,8 @@ vite.config.ts
 - Título de la pestaña del navegador:
     index.html → <title>...</title>
 
-- Texto de accesibilidad de la captura del juego:
-    src/App.tsx → atributo `alt` del <img> del hero (buscar `alt="` cerca de
-    HERO_GAMEPLAY_SRC).
+- Accesibilidad del hero en video:
+    src/App.tsx → `aria-label` del <video> del hero (buscar `HERO_VIDEO_SRC`).
 
 - Pills / badges superiores ("Documento · TOD", etc.):
     src/App.tsx → mismo header que el h1.
