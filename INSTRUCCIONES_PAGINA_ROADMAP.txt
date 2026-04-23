@@ -46,15 +46,15 @@ src/App.tsx
   - CASI TODO el contenido visible del roadmap está aquí (un solo componente
     grande `Roadmap`). Es el archivo principal para textos, hero, secciones,
     pills, tablas conceptuales, etc.
-  - Hero (columna derecha): `<img>` con `public/hero-pantalla-inicial.gif` (animación
-    en bucle; funciona en cualquier navegador). Para regenerar el GIF desde un `.ogv`
-    en `public/hero-pantalla-inicial.ogv`: `npm run build:hero-gif` (requiere `ffmpeg-static`).
+  - Hero (columna derecha): `<video>` con `public/hero-pantalla-inicial.mp4` (H.264,
+    duración completa; los GIF muy largos se cortan en muchos navegadores). Desde `.ogv`:
+    `npm run build:hero-mp4` (opcional GIF: `npm run build:hero-gif`; requiere `ffmpeg-static`).
 
 src/index.css
   - Estilos globales / Tailwind.
 
 public/
-  - `hero-pantalla-inicial.gif` — hero animado del roadmap (commit normal en Git).
+  - `hero-pantalla-inicial.mp4` — hero en vídeo (commit en Git; ~50 MB típico).
   - `tod-hero-gameplay.png` — captura estática (opcional / otros usos).
 
 src/data/roadmapData.ts
@@ -82,8 +82,8 @@ vite.config.ts
 - Título de la pestaña del navegador:
     index.html → <title>...</title>
 
-- Texto alternativo del hero animado:
-    src/App.tsx → atributo `alt` del <img> del hero (buscar `HERO_GIF_SRC`).
+- Etiqueta accesible del hero:
+    src/App.tsx → `aria-label` del <video> del hero (buscar `HERO_MP4_SRC`).
 
 - Pills / badges superiores ("Documento · TOD", etc.):
     src/App.tsx → mismo header que el h1.

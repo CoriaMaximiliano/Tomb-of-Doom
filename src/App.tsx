@@ -11,18 +11,17 @@ import {
   GitBranch,
   Scale,
   ExternalLink,
-  Download,
 } from 'lucide-react';
 
 /**
  * Roadmap — Tomb of Doom (TOD)
  * Pegá este archivo en bolt.new (React + Tailwind + lucide-react).
  *
- * Hero: GIF animado `hero-pantalla-inicial.gif` en `public/` (compatible con todos los
- * navegadores). Para regenerarlo desde un `.ogv`: `npm run build:hero-gif`.
+ * Hero: vídeo `hero-pantalla-inicial.mp4` (H.264, duración completa; el GIF largo se corta
+ * en muchos navegadores). Desde `.ogv`: `npm run build:hero-mp4` (opcional GIF: `build:hero-gif`).
  */
 const baseUrl = import.meta.env.BASE_URL;
-const HERO_GIF_SRC = `${baseUrl}hero-pantalla-inicial.gif`;
+const HERO_MP4_SRC = `${baseUrl}hero-pantalla-inicial.mp4`;
 
 type RoadmapTone = 'amber' | 'violet' | 'cyan' | 'emerald';
 
@@ -394,13 +393,17 @@ const Roadmap = () => {
 
             <div className="flex min-h-0 flex-col gap-4 lg:col-span-7 lg:h-full">
               <figure className="relative isolate h-56 w-full overflow-hidden rounded-2xl border border-orange-500/35 bg-zinc-950 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.08),0_24px_60px_-20px_rgba(59,130,246,0.28),0_18px_40px_-24px_rgba(249,115,22,0.22)] ring-1 ring-orange-500/20 sm:h-64 lg:h-auto lg:min-h-0 lg:flex-1">
-                <img
-                  src={HERO_GIF_SRC}
-                  alt="Tomb of Doom: pantalla inicial del juego (animación en bucle)."
+                <video
                   className="absolute inset-0 h-full w-full object-cover object-center"
-                  loading="eager"
-                  decoding="async"
-                />
+                  muted
+                  playsInline
+                  loop
+                  autoPlay
+                  preload="auto"
+                  aria-label="Tomb of Doom: pantalla inicial del juego (animación en bucle)."
+                >
+                  <source src={HERO_MP4_SRC} type="video/mp4" />
+                </video>
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0a0d14]/80 via-transparent to-transparent" />
                 <figcaption className="pointer-events-none absolute inset-x-0 bottom-0 flex items-end px-3 pb-3 pt-12">
                   <span className="rounded-lg border border-orange-500/35 bg-zinc-950/85 px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest text-orange-100 backdrop-blur-sm md:text-[11px]">
@@ -960,63 +963,43 @@ const Roadmap = () => {
 
         <aside
           id="enlaces-oficiales"
-          className="order-1 flex w-full shrink-0 flex-col xl:order-2 xl:sticky xl:top-8 xl:w-[min(100%,360px)] 2xl:w-[400px]"
-          aria-label="Enlaces oficiales y recursos"
+          className="order-1 flex w-full max-w-[220px] shrink-0 flex-col self-center xl:self-start xl:order-2 xl:sticky xl:top-8 xl:max-w-none xl:w-48 2xl:w-52"
+          aria-label="Enlaces oficiales"
         >
-          <div className="relative flex min-h-[min(85vh,640px)] flex-col overflow-hidden rounded-2xl border border-orange-500/35 bg-gradient-to-b from-zinc-900/95 via-zinc-950/98 to-[#120a18] p-6 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.08),0_20px_60px_-20px_rgba(249,115,22,0.12)] ring-1 ring-orange-500/15 md:p-7">
+          <div className="relative flex min-h-[min(72vh,520px)] w-full flex-col overflow-hidden rounded-2xl border border-orange-500/35 bg-gradient-to-b from-zinc-900/95 via-zinc-950/98 to-[#120a18] p-4 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.08),0_20px_60px_-20px_rgba(249,115,22,0.12)] ring-1 ring-orange-500/15 xl:min-h-[calc(100dvh-6rem)] xl:p-3.5">
             <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-orange-400/40 to-transparent opacity-80" />
-            <p className="text-[11px] font-extrabold uppercase tracking-[0.2em] text-orange-200/90">
-              Enlaces oficiales
-            </p>
-            <h2 className="mt-2 text-xl font-black tracking-tight text-white md:text-2xl">
-              Tomb of Doom
-            </h2>
-            <p className="mt-2 text-sm leading-relaxed text-slate-400">
-              Discord, redes y (pronto) descarga del juego y material relacionado. Este panel se irá
-              completando con nuevos enlaces.
+            <p className="text-[10px] font-extrabold uppercase tracking-[0.18em] text-orange-200/90">
+              Enlaces
             </p>
 
-            <nav className="mt-6 flex flex-col gap-3" aria-label="Redes y comunidad">
+            <nav className="mt-4 flex flex-col gap-2" aria-label="Redes y comunidad">
               <a
                 href="https://discord.gg/PPfADgzK"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center justify-between gap-3 rounded-xl border border-[#5865F2]/40 bg-[#5865F2]/10 px-4 py-3.5 text-sm font-semibold text-slate-100 no-underline transition-[border-color,background-color,box-shadow] hover:border-[#5865F2]/70 hover:bg-[#5865F2]/18 hover:shadow-[0_0_28px_-8px_rgba(88,101,242,0.45)]"
+                className="group flex items-center gap-2 rounded-lg border border-[#5865F2]/40 bg-[#5865F2]/10 px-2.5 py-2.5 text-xs font-semibold text-slate-100 no-underline transition-[border-color,background-color,box-shadow] hover:border-[#5865F2]/70 hover:bg-[#5865F2]/18 hover:shadow-[0_0_20px_-8px_rgba(88,101,242,0.4)]"
               >
-                <span className="flex items-center gap-2">
-                  <span className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-[#5865F2]/25 text-lg font-bold text-white">
-                    D
-                  </span>
-                  Discord — comunidad
+                <span className="grid h-8 w-8 shrink-0 place-items-center rounded-md bg-[#5865F2]/25 text-sm font-bold text-white">
+                  D
                 </span>
-                <ExternalLink className="h-4 w-4 shrink-0 text-slate-300 opacity-70 transition group-hover:opacity-100" />
+                <span className="min-w-0 flex-1 truncate">Discord</span>
+                <ExternalLink className="h-3.5 w-3.5 shrink-0 text-slate-300 opacity-60 transition group-hover:opacity-100" />
               </a>
               <a
                 href="https://x.com/TombofDoomDOT"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center justify-between gap-3 rounded-xl border border-zinc-500/45 bg-zinc-950/70 px-4 py-3.5 text-sm font-semibold text-slate-100 no-underline transition-[border-color,background-color,box-shadow] hover:border-slate-400/55 hover:bg-zinc-900/85 hover:shadow-[0_0_24px_-10px_rgba(255,255,255,0.12)]"
+                className="group flex items-center gap-2 rounded-lg border border-zinc-500/45 bg-zinc-950/70 px-2.5 py-2.5 text-xs font-semibold text-slate-100 no-underline transition-[border-color,background-color,box-shadow] hover:border-slate-400/55 hover:bg-zinc-900/85 hover:shadow-[0_0_18px_-10px_rgba(255,255,255,0.1)]"
               >
-                <span className="flex items-center gap-2">
-                  <span className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-zinc-800 text-xs font-black tracking-tight text-white">
-                    X
-                  </span>
-                  X (Twitter)
+                <span className="grid h-8 w-8 shrink-0 place-items-center rounded-md bg-zinc-800 text-[10px] font-black tracking-tight text-white">
+                  X
                 </span>
-                <ExternalLink className="h-4 w-4 shrink-0 text-slate-300 opacity-70 transition group-hover:opacity-100" />
+                <span className="min-w-0 flex-1 truncate">X</span>
+                <ExternalLink className="h-3.5 w-3.5 shrink-0 text-slate-300 opacity-60 transition group-hover:opacity-100" />
               </a>
             </nav>
 
-            <div className="mt-8 flex min-h-[220px] flex-1 flex-col rounded-xl border border-dashed border-orange-500/25 bg-zinc-950/50 p-5">
-              <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-orange-200/80">
-                <Download className="h-3.5 w-3.5" />
-                Próximamente
-              </div>
-              <p className="mt-3 text-sm leading-relaxed text-slate-400">
-                Acá irá el <span className="font-semibold text-slate-300">link de descarga del juego</span>,{' '}
-                launcher, parches y todo lo demás que quieras destacar al costado.
-              </p>
-            </div>
+            <div className="mt-3 min-h-[1px] flex-1" aria-hidden />
           </div>
         </aside>
       </div>

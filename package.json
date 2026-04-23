@@ -10,6 +10,7 @@
     "deploy": "gh-pages -d dist",
     "build": "vite build",
     "build:hero-gif": "node scripts/build-hero-gif.mjs",
+    "build:hero-mp4": "node scripts/build-hero-mp4.mjs",
     "lint": "eslint .",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit -p tsconfig.app.json"
