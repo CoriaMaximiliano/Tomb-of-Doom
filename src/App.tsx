@@ -11,6 +11,7 @@ import {
   GitBranch,
   Scale,
   ExternalLink,
+  Calculator,
 } from 'lucide-react';
 
 /**
@@ -49,6 +50,54 @@ type RoadmapChapter = {
   sections: RoadmapSection[];
   icon: React.ReactNode;
 };
+
+/** Texto del desplegable «Desglose matemático de emisión» (panel lateral). */
+const DESGLOSE_MATEMATICO_EMISION_DOC = `SISTEMA DE EMISIÓN NFT AUTORREGULADO (v1.0)
+
+Prioridad: Defensa de Valor y Resistencia a Exploits
+=========================================================
+
+1. MÓDULO DE EMISIÓN POTENCIAL (Ep)
+Mide la presión de demanda real del ecosistema.
+---------------------------------------------------------
+Ratio = ( (w1 * P avg) + (w2 * P s) ) / P ref
+
+Ep = (UA * Actividad) * ((min(1.25, Ratio)^beta) - 1)
+
+2. MÓDULO DE CONTROL DE INFLACIÓN (Ci)
+Actúa como techo físico para proteger la escasez.
+---------------------------------------------------------
+EMA mint = (0.5 * Mint_t1) + (0.3 * Mint_t2) + (0.2 * Mint_t3)
+Ci = min( EMA mint * F, Supply * r max )
+
+3. MÓDULO DE AJUSTE POR MERCADO (Am)
+Freno de emergencia ante caídas de precio.
+---------------------------------------------------------
+Am = max( 0, min( 1, Ratio )^k )
+
+4. FÓRMULA FINAL UNIFICADA (Mint)
+---------------------------------------------------------
+Mint = max( 0, min( Ep, Ci ) ) * Am
+
+=========================================================
+PARÁMETROS RECOMENDADOS Y FUNCIONAMIENTO
+=========================================================
+beta  = 0.5 (Suavizado de volatilidad)
+k     = 2.0 (Penalización cuadrática en caídas)
+r_max = 0.05 (Inflación máxima del 5% por temporada)
+F     = 2.0 (Límite de aceleración de emisión)
+UA    = Usuarios únicos con transacciones verificadas
+
+1) El "Ratio" (El Termómetro): Compara el precio actual contra el de la temporada pasada. Si es >1, el mercado crece; si es <1, la emisión se frena.
+
+2) Módulo Ep (El Deseo): Calcula cuántos NFTs nuevos requiere la demanda. El Cap del 1.25 actúa como seguro contra burbujas irracionales.
+
+3) Módulo Ci (El Techo): Límite macroeconómico inquebrantable basado en el historial y r_max.
+
+4) Módulo Am (El Freno): Defensa agresiva. Caídas leves de precio generan recortes cuadráticos en la emisión; caídas severas paralizan el minteo a cero.
+
+Un Compromiso de Transparencia Real:
+Siendo sinceros: ni el mejor modelo económico puede predecir la irracionalidad humana a perpetuidad. La fórmula actual es extremadamente robusta porque no intenta adivinar el futuro, sino que reacciona al presente integrando datos de mercado, adopción y subastas en tiempo real. Sin embargo, como todo sistema vivo, requerirá calibración. Mi compromiso no es mantener una fórmula matemática estática por capricho, sino garantizar una economía sana. Dejo esto en claro, No soy futurólogo; opero con datos fácticos. Por ello, cualquier ajuste futuro será resultado de un análisis técnico profundo y será ejecutado con total transparencia. No buscamos la utopía de una "fórmula perfecta", buscamos un blindaje pragmático que proteja el valor de sus activos incluso en los escenarios más impredecibles.`;
 
 const Roadmap = () => {
   const chapters: RoadmapChapter[] = [
@@ -997,6 +1046,20 @@ const Roadmap = () => {
                 <span className="min-w-0 flex-1 truncate">X</span>
                 <ExternalLink className="h-3.5 w-3.5 shrink-0 text-slate-300 opacity-60 transition group-hover:opacity-100" />
               </a>
+
+              <details className="rounded-lg border border-orange-500/35 bg-zinc-950/75 text-left transition-[border-color,box-shadow] open:border-orange-400/45 open:shadow-[0_0_20px_-10px_rgba(249,115,22,0.2)]">
+                <summary className="flex cursor-pointer list-none items-center gap-2 px-2.5 py-2.5 text-xs font-semibold text-slate-100 outline-none marker:content-none [&::-webkit-details-marker]:hidden">
+                  <span className="grid h-8 w-8 shrink-0 place-items-center rounded-md bg-orange-500/20 text-orange-100">
+                    <Calculator className="h-4 w-4" aria-hidden />
+                  </span>
+                  <span className="min-w-0 flex-1 leading-snug">Desglose matemático de emisión</span>
+                </summary>
+                <div className="max-h-[min(70vh,480px)] overflow-y-auto overscroll-contain border-t border-orange-500/20 bg-[#0a0c12]/95 px-2 py-2">
+                  <pre className="whitespace-pre-wrap break-words font-sans text-[9px] leading-relaxed text-slate-300">
+                    {DESGLOSE_MATEMATICO_EMISION_DOC}
+                  </pre>
+                </div>
+              </details>
             </nav>
 
             <div className="mt-3 min-h-[1px] flex-1" aria-hidden />
