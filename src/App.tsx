@@ -10,6 +10,8 @@ import {
   Target,
   GitBranch,
   Scale,
+  ExternalLink,
+  Download,
 } from 'lucide-react';
 
 /**
@@ -334,7 +336,8 @@ const Roadmap = () => {
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-orange-400/35 to-transparent" />
       </div>
 
-      <div className="relative mx-auto max-w-6xl px-4 py-10 md:px-8 md:py-14">
+      <div className="relative mx-auto flex w-full max-w-[min(100%,1440px)] flex-col gap-10 px-4 py-10 md:px-6 md:py-14 xl:flex-row xl:items-start xl:gap-10 2xl:gap-12">
+        <div className="order-2 min-w-0 flex-1 xl:order-1 xl:max-w-6xl">
         <header className="mb-14 md:mb-20">
           {/* Grid: misma altura en lg; pills abajo en la columna izquierda para no “flotar” en medio */}
           <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:items-stretch lg:gap-10">
@@ -953,6 +956,69 @@ const Roadmap = () => {
             </div>
           </div>
         </section>
+        </div>
+
+        <aside
+          id="enlaces-oficiales"
+          className="order-1 flex w-full shrink-0 flex-col xl:order-2 xl:sticky xl:top-8 xl:w-[min(100%,360px)] 2xl:w-[400px]"
+          aria-label="Enlaces oficiales y recursos"
+        >
+          <div className="relative flex min-h-[min(85vh,640px)] flex-col overflow-hidden rounded-2xl border border-orange-500/35 bg-gradient-to-b from-zinc-900/95 via-zinc-950/98 to-[#120a18] p-6 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.08),0_20px_60px_-20px_rgba(249,115,22,0.12)] ring-1 ring-orange-500/15 md:p-7">
+            <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-orange-400/40 to-transparent opacity-80" />
+            <p className="text-[11px] font-extrabold uppercase tracking-[0.2em] text-orange-200/90">
+              Enlaces oficiales
+            </p>
+            <h2 className="mt-2 text-xl font-black tracking-tight text-white md:text-2xl">
+              Tomb of Doom
+            </h2>
+            <p className="mt-2 text-sm leading-relaxed text-slate-400">
+              Discord, redes y (pronto) descarga del juego y material relacionado. Este panel se irá
+              completando con nuevos enlaces.
+            </p>
+
+            <nav className="mt-6 flex flex-col gap-3" aria-label="Redes y comunidad">
+              <a
+                href="https://discord.gg/PPfADgzK"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center justify-between gap-3 rounded-xl border border-[#5865F2]/40 bg-[#5865F2]/10 px-4 py-3.5 text-sm font-semibold text-slate-100 no-underline transition-[border-color,background-color,box-shadow] hover:border-[#5865F2]/70 hover:bg-[#5865F2]/18 hover:shadow-[0_0_28px_-8px_rgba(88,101,242,0.45)]"
+              >
+                <span className="flex items-center gap-2">
+                  <span className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-[#5865F2]/25 text-lg font-bold text-white">
+                    D
+                  </span>
+                  Discord — comunidad
+                </span>
+                <ExternalLink className="h-4 w-4 shrink-0 text-slate-300 opacity-70 transition group-hover:opacity-100" />
+              </a>
+              <a
+                href="https://x.com/TombofDoomDOT"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center justify-between gap-3 rounded-xl border border-zinc-500/45 bg-zinc-950/70 px-4 py-3.5 text-sm font-semibold text-slate-100 no-underline transition-[border-color,background-color,box-shadow] hover:border-slate-400/55 hover:bg-zinc-900/85 hover:shadow-[0_0_24px_-10px_rgba(255,255,255,0.12)]"
+              >
+                <span className="flex items-center gap-2">
+                  <span className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-zinc-800 text-xs font-black tracking-tight text-white">
+                    X
+                  </span>
+                  X (Twitter)
+                </span>
+                <ExternalLink className="h-4 w-4 shrink-0 text-slate-300 opacity-70 transition group-hover:opacity-100" />
+              </a>
+            </nav>
+
+            <div className="mt-8 flex min-h-[220px] flex-1 flex-col rounded-xl border border-dashed border-orange-500/25 bg-zinc-950/50 p-5">
+              <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-orange-200/80">
+                <Download className="h-3.5 w-3.5" />
+                Próximamente
+              </div>
+              <p className="mt-3 text-sm leading-relaxed text-slate-400">
+                Acá irá el <span className="font-semibold text-slate-300">link de descarga del juego</span>,{' '}
+                launcher, parches y todo lo demás que quieras destacar al costado.
+              </p>
+            </div>
+          </div>
+        </aside>
       </div>
     </div>
   );
