@@ -1,8 +1,9 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
-// GitHub Pages (repo project): https://<user>.github.io/tomb-of-doom/
-const repoBase = '/tomb-of-doom/';
+// Debe coincidir con el path de Pages (mismo nombre que el repo en GitHub).
+// Repo: CoriaMaximiliano/Tomb-of-Doom → https://coriamaximiliano.github.io/Tomb-of-Doom/
+const repoBase = '/Tomb-of-Doom/';
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
