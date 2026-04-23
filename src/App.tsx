@@ -52,56 +52,59 @@ const Roadmap = () => {
     {
       id: 1,
       badge: 'ITO-1A',
-      title: 'Economía de partida y protocolo PvP',
-      subtitle: 'Pruebas de estrés · Alpha/Beta cerrada antes de apertura pública',
-      status: 'EN CURSO',
-      progress: 28,
+      title: 'Economía PvP e infraestructura',
+      subtitle: 'Donde el juego cobra vida y se valida la economía.',
+      status: 'Alpha cerrada · 0% — próximo',
+      progress: 0,
       accent: 'from-orange-500/28 via-amber-500/12 to-transparent',
       tone: 'amber',
       icon: <Swords className="h-7 w-7 text-orange-300" />,
       sections: [
         {
-          title: 'Entorno de validación',
+          title: 'Objetivo en esta fase',
           items: [
             {
-              bold: 'Despliegue inicial cerrado',
-              text: 'Alpha/Beta en entorno cerrado para auditar estabilidad de servidores y balance económico antes de abrir al público general.',
+              bold: 'Validación antes de abrir',
+              text: 'Auditar servidores, estabilidad y el sistema anti-abuso con datos reales; calibrar el loop competitivo antes del acceso público general.',
             },
           ],
         },
         {
-          title: 'Entrada Pre–Temporada 1 (RON)',
-          lead: 'Cada jugador deposita 10 RON por partida en esta fase; el loop competitivo alimenta desarrollo y la tabla clasificatoria hacia el TGE.',
+          title: 'Pre-Temporada 1',
+          lead: 'Depósito en escrow por partida; los puntos alimentan tu posición para el TGE (generación del token).',
           metrics: [
-            { kicker: 'Entrada', value: '10 RON', detail: 'Por jugador y partida en Pre–Temporada 1 (dos wallets distintas en el match). El desglose on-chain del escrow sigue las reglas del contrato desplegado (p. ej. 0 % ganador / 100 % feeRecipient en la variante MatchRON de prueba).' },
-            { kicker: 'Victoria', value: '1.000 pts', detail: 'Puntos de clasificación que suman al ranking global de la pre-temporada.' },
-            { kicker: 'Derrota', value: '600 pts', detail: 'Reconocimiento por participar y cerrar la partida; todos acumulan hacia el reparto proporcional.' },
-          ],
-        },
-        {
-          title: 'Liquidez del duelo y fee (macro)',
-          lead: 'Post–Temporada 1 el fee del pozo vuelve al modelo maduro; en Pre–Temporada 1 la prioridad es datos, ranking y acceso al TGE.',
-          items: [
             {
-              bold: 'Protocolo de apuestas (modelo maduro)',
-              text: 'Tras Pre–Temporada 1: el ganador se lleva el 90% del pozo; el 10% restante alimenta el diseño macro (quema, liquidez, pool NFT y desarrollo según el desglose publicado).',
+              kicker: 'Entrada',
+              value: '10 RON',
+              detail: 'Por jugador y partida, depositados en escrow según el contrato del match.',
             },
             {
-              bold: 'Distribución del fee (10% del pozo)',
-              text: 'Pre–Temporada 1: el 100% de esa tarifa va a desarrollo e infraestructura. Post–Temporada 1 (ecosistema maduro): sobre la parte en TOD, 5% a la pool de holders de NFT y 5% quema permanente; sobre la parte en RON, 8% a la pool de liquidez en RON y 2% a operaciones de desarrollo.',
+              kicker: 'Victoria',
+              value: '1.000 pts',
+              detail: 'Puntos de ranking que consolidan tu trayectoria hacia el evento TGE.',
+            },
+            {
+              kicker: 'Derrota',
+              value: '600 pts',
+              detail: 'Reconocimiento por jugar limpio y cerrar la partida; sigue sumando al ranking.',
             },
           ],
         },
         {
-          title: 'Tabla clasificatoria TGE, referidos y compra vinculada a la subasta',
+          title: 'Comisión del pozo (fee del 10%)',
+          lead: 'En la fase madura el ganador se lleva el 90% del pozo; el 10% restante cumple una función macro según el activo de liquidación.',
           items: [
             {
-              bold: 'Tabla TGE por victorias de referidos',
-              text: 'Para el evento de generación de tokens (TGE), una tabla clasificatoria basada exclusivamente en el rendimiento de victorias de los referidos: las recompensas fluyen hacia quienes fortalecen la red competitiva, con 100 puntos por cada victoria que logren tus referidos. A ese ranking se asignan 50.000 TOD (reparto según puntos en el universo elegible y reglas publicadas antes del cierre).',
+              bold: 'Pre-Temporada 1',
+              text: 'El 100% de esa tarifa se destina a desarrollo y servidores: prioridad operativa, sin distracciones.',
             },
             {
-              bold: 'Airdrop y acceso preferente',
-              text: 'Otros 50.000 TOD con opción de compra como antes: precio al promedio de la subasta de salida del token (no al mínimo). El 10% del millón inicial por meritocracia (puntos semanales acumulados) se mantiene igual: 100.000 TOD, al margen de la tabla de referidos.',
+              bold: 'Fase madura — tramos en TOD',
+              text: '5% a holders de NFT vía pool publicada y 5% a quema permanente, alineando valor a la comunidad y al suministro.',
+            },
+            {
+              bold: 'Fase madura — tramos en RON',
+              text: '8% a liquidez y 2% a operaciones, para profundidad de mercado y ejecución sostenible.',
             },
           ],
         },
@@ -110,46 +113,42 @@ const Roadmap = () => {
     {
       id: 2,
       badge: 'ITO-1B',
-      title: 'Integridad competitiva (ELO / MMR)',
-      subtitle: 'Mitigación de smurf, farmeo y colusión bajo reglas explícitas',
-      status: 'EN CURSO',
+      title: 'Integridad competitiva',
+      subtitle: 'Reglas claras para que gane el mejor, sin trampas.',
+      status: 'En desarrollo',
       progress: 0,
       accent: 'from-violet-500/22 via-purple-600/10 to-transparent',
       tone: 'violet',
       icon: <Scale className="h-7 w-7 text-violet-200" />,
       sections: [
         {
-          title: 'Nuevas cuentas y riesgo de extracción',
+          title: 'MMR de incertidumbre',
           items: [
             {
-              bold: 'MMR de incertidumbre',
-              text: 'Cuentas nuevas con alta volatilidad de puntos hasta estabilizar el rango real. Retiros bloqueados hasta cumplir criterios de balance del MMR; plazo orientativo entre una semana y un mes, sin sacrificar estabilidad del juego.',
+              bold: 'Cuentas nuevas, riesgo controlado',
+              text: 'Las cuentas recién calibradas pasan por una fase de prueba con mayor varianza en el ranking. Los retiros pueden retenerse entre 7 y 30 días hasta confirmar comportamiento humano y consistente — protegemos el ecosistema sin castigar al jugador legítimo.',
             },
           ],
         },
         {
-          title: 'Señales de habilidad y emparejamiento',
+          title: 'Sistema ELO inteligente',
           items: [
             {
-              bold: 'Probabilidad de victoria (ELO)',
-              text: 'Puntaje ponderado: ganar a un rival de mayor ELO suma más; perder contra un ELO inferior penaliza más fuerte.',
+              bold: 'Puntuación con contexto',
+              text: 'La victoria pesa distinto según la dificultad real del rival: ganarle a quien está arriba suma más; perder contra un rival claramente inferior duele más en el registro.',
             },
             {
-              bold: 'K-Factor dinámico (anti-farmeo)',
-              text: 'Algoritmo propietario que detecta rachas anómalas y acelera emparejamientos contra élite para neutralizar el farmeo en cuentas bajas.',
-            },
-            {
-              bold: 'Restricción de colusión',
-              text: 'Máximo 5 partidas diarias contra el mismo rival; objetivo algorítmico de ~1 enfrentamiento diario según densidad del servidor.',
+              bold: 'K-Factor dinámico',
+              text: 'Detectamos rachas anómalas y ajustamos la velocidad de ascenso para que un perfil real suba de nivel sin abrir la puerta al smurfing encubierto.',
             },
           ],
         },
         {
-          title: 'Reglas de temporada',
+          title: 'Cero colusión',
           items: [
             {
-              bold: 'Integridad de metajuego',
-              text: 'Sin cambios de balance a mitad de temporada salvo exploits críticos. Ajustes estructurales entre temporadas.',
+              bold: 'Tope diario por rival',
+              text: 'Máximo de cinco partidas por día contra el mismo oponente. El objetivo es un ranking transparente, donde el volumen no reemplace al mérito.',
             },
           ],
         },
@@ -158,9 +157,9 @@ const Roadmap = () => {
     {
       id: 3,
       badge: 'ITO-2',
-      title: 'Capitalización y política monetaria',
-      subtitle: 'NFTs, liquidez y suministro fijo de TOD · Ventana Q1–Q2 2027',
-      status: 'SIGUIENTE',
+      title: 'Capital y tokenomics',
+      subtitle: 'Suministro fijo y transparencia total. Financiación = profundidad.',
+      status: 'Q1–Q2 2027',
       progress: 0,
       accent: 'from-sky-400/18 via-cyan-500/8 to-transparent',
       tone: 'cyan',
@@ -170,94 +169,69 @@ const Roadmap = () => {
           title: 'Principio rector',
           items: [
             {
-              bold: 'Financiación = profundidad, no extracción',
-              text: 'El éxito a largo plazo exige mercado profundo. Los fondos consolidan producto e infraestructura, no alimentan salidas oportunistas.',
+              bold: 'Financiación = profundidad',
+              text: 'Los fondos se piensan para mercado profundo y ejecución seria del producto, no para ciclos de extracción cortoplacistas.',
             },
           ],
         },
         {
-          title: 'Uso del capital (venta de NFTs)',
-          metrics: [
-            { kicker: 'Liquidez', value: '70%', detail: 'Pool de liquidez en RON: mercado secundario y menor volatilidad.' },
-            { kicker: 'Infra', value: '25%', detail: 'Servidores, escalabilidad y experiencia de usuario.' },
-            { kicker: 'Tesorería', value: '5%', detail: 'Tesorería del creador.' },
-          ],
-        },
-        {
-          title: 'Suministro de TOD',
+          title: 'Suministro máximo de TOD',
           items: [
             {
-              bold: 'Tope duro e inmutable',
-              text: 'Suministro máximo de 10 millones de TOD. Sin función de emisión adicional: escasez programada en el contrato y en la política operativa.',
+              bold: 'Tope fijo e inmutable',
+              text: 'Diez millones de tokens, sin emisión adicional programada: la escasez es parte del diseño, no un parche posterior.',
             },
           ],
         },
         {
-          title: 'Primera distribución (1.000.000 TOD)',
-          lead: 'Los remanentes de cada mecanismo se re-subastan. Pre–Temporada 1: entrada 10 RON; puntos de partida 1.000 / 600; tabla TGE por referidos (100 pts por victoria de referido) y opción de compra al promedio de la subasta.',
+          title: 'Primer millón (distribución TGE)',
+          lead: 'El primer tramo concentra el arranque del circulante con reglas explícitas y meritocracia medible.',
           metrics: [
-            { kicker: 'Subasta', value: '80%', detail: '800.000 TOD · mejor postor en RON.' },
+            { kicker: 'Subasta', value: '80%', detail: '800.000 TOD al mejor postor en RON.' },
             {
-              kicker: 'Clasificación (referidos · TGE)',
+              kicker: 'Referidos',
               value: '5%',
-              detail:
-                '50.000 TOD · tabla por victorias de referidos; 100 puntos por victoria de referido.',
+              detail: '50.000 TOD: 100 puntos por cada victoria de tus invitados en la tabla publicada.',
             },
             {
               kicker: 'Opción de compra',
               value: '5%',
-              detail:
-                '50.000 TOD · precio medio (promedio) de la subasta de salida del token, no al mínimo.',
+              detail: '50.000 TOD al precio promedio de la subasta de salida — equidad frente al mínimo táctico.',
             },
-            { kicker: 'Meritocracia', value: '10%', detail: '100.000 TOD · puntos semanales acumulados (sin cambios).' },
+            { kicker: 'Meritocracia', value: '10%', detail: '100.000 TOD por puntos semanales acumulados.' },
           ],
         },
         {
-          title: 'Vesting anti-dump',
+          title: 'Vesting (seguridad)',
           items: [
             {
-              bold: 'Liberación lineal',
-              text: 'Todo el token de esta fase: vesting del 2,5% mensual después de Temporada 1, alineando a participantes tempranos con el ciclo real del juego.',
+              bold: 'Liberación gradual',
+              text: 'Salida del 5% mensual para evitar shocks de liquidez: el compromiso con el proyecto se ve en el calendario, no solo en el discurso.',
             },
           ],
         },
         {
-          title: 'Los 9 millones de TOD restantes',
+          title: 'Los nueve millones restantes (100% del remanente)',
           metrics: [
             {
               kicker: 'Reserva estratégica',
               value: '30%',
-              detail: '2.700.000 · torneos y eventos; fuera del circulante operativo cotidiano.',
+              detail: '2.700.000 TOD · torneos y eventos que sostienen el interés a largo plazo.',
             },
             {
               kicker: 'Liquidez DEX',
-              value: '15–30%',
-              detail: '2.520.000 · Katana / Uniswap en par con RON.',
+              value: '30%',
+              detail: '3.000.000 TOD · par en Katana / Uniswap con RON para consolidar el mercado secundario.',
             },
             {
               kicker: 'Pool NFT + PvP',
               value: '25%',
-              detail: '2.250.000 · recompensas por tier y dividendos de partidas.',
+              detail: '2.250.000 TOD · recompensas por tier y dividendos ligados a partidas.',
             },
             {
-              kicker: 'Desarrollo',
-              value: '25%',
-              detail: '2.250.000 · ejecución del roadmap técnico.',
-            },
-            {
-              kicker: 'Equipo (vesting)',
-              value: '5%',
-              detail:
-                '450.000, vesting del 2,5% mensual post–Temporada 1.',
-            },
-          ],
-        },
-        {
-          title: 'Nota operativa',
-          items: [
-            {
-              bold: 'Liquidez no desplegada',
-              text: 'Tokens LP sin usar se reubican en la reserva estratégica para preservar disciplina de tesorería.',
+              kicker: 'Desarrollo técnico',
+              value: '15%',
+              detail: '1.350.000 TOD · roadmap, infraestructura y mantenimiento del meta.',
             },
           ],
         },
@@ -266,33 +240,37 @@ const Roadmap = () => {
     {
       id: 4,
       badge: 'OPS',
-      title: 'Temporadas y protocolo de contingencia',
-      subtitle: 'Ritmo de competencia, off-season técnico y pausa ante crisis',
-      status: 'PLANEADO',
+      title: 'Temporadas y contingencia',
+      subtitle: 'El ritmo del juego y protección ante crisis.',
+      status: 'Planeado',
       progress: 0,
       accent: 'from-emerald-400/18 via-teal-600/8 to-transparent',
       tone: 'emerald',
       icon: <Trophy className="h-7 w-7 text-emerald-200" />,
       sections: [
         {
-          title: 'Calendario competitivo',
+          title: 'Temporada 1 y ciclo habitual',
           items: [
             {
-              bold: 'Temporada 1 · Beta competitiva',
-              text: '1–2 meses extendidos: recolección de datos y ajustes estructurales de economía y balance.',
+              bold: 'Beta abierta con foco en datos',
+              text: 'La primera temporada prioriza telemetría técnica y económica: aprendemos del mundo real antes de acelerar el calendario competitivo.',
             },
             {
-              bold: 'Temporada 2 en adelante',
-              text: '2 semanas de competencia activa + 1 semana de descanso para parches, mods, creeps y torres sin romper la integridad intra-temporada.',
+              bold: 'Ciclo estable a partir de ahí',
+              text: 'Dos semanas de competencia activa y una semana de descanso para parches, torres nuevas y saneamiento del meta sin romper la integridad intra-temporada.',
             },
           ],
         },
         {
-          title: 'Transparencia y pausa',
+          title: 'Contingencia y transparencia',
           items: [
             {
-              bold: 'Protocolo de pausa',
-              text: 'Si Temporada 1 revela fallas críticas en economía o balance, se congela lo competitivo. La tesorería financia especialistas; no se opera un sistema roto. Principio: un paso a la vez, siempre hacia adelante.',
+              bold: 'Botón de pausa',
+              text: 'Ante fallas críticas o exploits, el PvP puede congelarse. Preferimos pausar, traer especialistas y reparar antes que operar un sistema dañado.',
+            },
+            {
+              bold: 'Aviso de transparencia',
+              text: 'El límite de diez millones de TOD es inmutable por diseño. Buscamos que cada token tenga peso real, con tesorería orientada a liquidez y a quien juega con criterio.',
             },
           ],
         },
@@ -379,19 +357,16 @@ const Roadmap = () => {
                       Doom
                     </span>
                     <span className="mt-3 block text-lg font-semibold tracking-tight text-slate-300 md:text-xl">
-                      Arquitectura económica y roadmap de desarrollo
+                      Arquitectura económica y roadmap
                     </span>
                   </h1>
                   <p className="max-w-xl text-[15px] leading-relaxed text-slate-300 md:text-base">
-                    Objetivo: un Tower Defense{' '}
-                    <span className="text-orange-100">3D, divertido y estable</span>, con economía
-                    de <span className="text-orange-100">suma positiva</span> donde manda el skill,
-                    reconocimiento a quienes invierten y calidad visual seria — lejos del clic para
-                    ganar típico de <span className="text-orange-100">juegos web3</span>. Abajo,
-                    cuatro bloques: <span className="text-slate-200">economía PvP</span>,{' '}
-                    <span className="text-slate-200">integridad competitiva</span>,{' '}
-                    <span className="text-slate-200">capital y tokenomics</span>,{' '}
-                    <span className="text-slate-200">temporadas y contingencia</span>.
+                    <span className="font-semibold text-slate-200">Visión:</span> un ecosistema{' '}
+                    <span className="text-orange-100">Tower Defense 3D</span> donde el valor nace de
+                    la <span className="text-orange-100">maestría técnica (skill-first)</span> y la{' '}
+                    <span className="text-orange-100">sostenibilidad financiera</span>. Construimos
+                    sobre Ronin una economía con reglas claras, lejos de esquemas inflacionarios y
+                    del &quot;clic para ganar&quot; de muchos juegos web3.
                   </p>
                 </div>
               </div>
@@ -399,15 +374,15 @@ const Roadmap = () => {
               <div className="flex flex-wrap gap-3 text-sm lg:pt-2">
                 <span className="inline-flex items-center gap-2 rounded-xl border border-orange-500/25 bg-zinc-900/70 px-3 py-2 text-slate-200 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.08)]">
                   <Target className="h-4 w-4 text-orange-400" />
-                  Skill-first y suma positiva
+                  Skill-first, economía real
                 </span>
                 <span className="inline-flex items-center gap-2 rounded-xl border border-sky-500/25 bg-zinc-900/70 px-3 py-2 text-slate-200 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.08)]">
                   <Users className="h-4 w-4 text-sky-300" />
-                  Anti-abuso (ELO / MMR)
+                  Integridad (ELO / MMR)
                 </span>
                 <span className="inline-flex items-center gap-2 rounded-xl border border-orange-600/30 bg-zinc-900/70 px-3 py-2 text-slate-200 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.08)]">
                   <Flame className="h-4 w-4 text-orange-500" />
-                  10 millones TOD inmutables
+                  10M TOD · suministro fijo
                 </span>
               </div>
             </div>
@@ -438,12 +413,12 @@ const Roadmap = () => {
                     <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-orange-400 opacity-60" />
                     <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-orange-400" />
                   </span>
-                  Alpha Cerrada
+                  Alpha cerrada · 0% — próximo
                 </p>
                   <p className="mt-3 text-xs leading-relaxed text-slate-300">
-                  Auditoría de servidores, protocolo PvP (entrada Pre–Temporada 1: 10 RON por
-                  jugador; victoria 1.000 pts / derrota 600 pts hacia tabla y TGE) y calibración del
-                  motor de emparejamiento y anti-abuso antes de apertura pública.
+                  Objetivo: auditar servidores y calibrar el anti-abuso antes de abrir al público.
+                  Pre-Temporada 1 con entrada en escrow (10 RON) y puntos de ranking (1.000 victoria /
+                  600 derrota) hacia el TGE.
                 </p>
               </div>
             </div>
@@ -457,12 +432,12 @@ const Roadmap = () => {
             Cómo leer estos documentos
           </p>
           <p className="mt-3 text-sm leading-relaxed text-slate-300">
-            <span className="font-semibold text-slate-200">Página maestra (arriba):</span> roadmap
-            macro por fases ITO (economía PvP en RON, integridad competitiva, capital y tokenomics,
-            temporadas).{' '}
-            <span className="font-semibold text-slate-200">Anexo · Whitepaper NFT (abajo):</span>{' '}
-            diseño de activos, balance, breeding, emisión y flujos hacia tenedores. Podés leerlos
-            en orden o ir directo al anexo si tu foco son los NFT.
+            <span className="font-semibold text-slate-200">Roadmap (arriba):</span> cuatro bloques
+            ITO — economía PvP e infraestructura, integridad competitiva, capital y tokenomics, y
+            temporadas con contingencia.{' '}
+            <span className="font-semibold text-slate-200">Anexo NFT (abajo):</span> activos,
+            balance, breeding y flujos hacia holders. Podés seguir el orden o saltar al anexo si tu
+            foco son los NFT.
           </p>
         </div>
 
@@ -533,14 +508,22 @@ const Roadmap = () => {
 
                 <div className="shrink-0 md:pt-1">
                   <span
-                    className={`inline-flex items-center rounded-full px-4 py-1.5 text-xs font-extrabold uppercase tracking-widest ${
+                    className={`inline-flex items-center rounded-full px-4 py-1.5 font-extrabold ${
                       ch.progress > 0
-                        ? 'bg-gradient-to-r from-orange-500 to-amber-400 text-zinc-950 shadow-[0_0_28px_rgba(249,115,22,0.45)]'
-                        : ch.status === 'EN CURSO'
-                          ? 'bg-orange-500/12 text-orange-100 ring-1 ring-orange-400/35'
-                          : ch.status === 'SIGUIENTE'
-                            ? 'bg-sky-500/15 text-sky-100 ring-1 ring-sky-400/35'
-                            : 'bg-zinc-800/80 text-slate-200 ring-1 ring-zinc-600/50'
+                        ? 'text-xs uppercase tracking-widest bg-gradient-to-r from-orange-500 to-amber-400 text-zinc-950 shadow-[0_0_28px_rgba(249,115,22,0.45)]'
+                        : ch.status === 'En desarrollo'
+                          ? 'text-xs uppercase tracking-widest bg-violet-500/12 text-violet-100 ring-1 ring-violet-400/35'
+                          : ch.status === 'Q1–Q2 2027'
+                            ? 'text-xs uppercase tracking-widest bg-sky-500/15 text-sky-100 ring-1 ring-sky-400/35'
+                            : ch.status === 'Planeado'
+                              ? 'text-xs uppercase tracking-widest bg-emerald-500/12 text-emerald-100 ring-1 ring-emerald-400/30'
+                              : ch.status.startsWith('Alpha')
+                                ? 'max-w-[14rem] text-center text-[10px] font-bold leading-snug tracking-normal text-orange-100 sm:max-w-none sm:text-[11px] bg-orange-500/12 ring-1 ring-orange-400/35'
+                                : ch.status === 'EN CURSO'
+                                  ? 'text-xs uppercase tracking-widest bg-orange-500/12 text-orange-100 ring-1 ring-orange-400/35'
+                                  : ch.status === 'SIGUIENTE'
+                                    ? 'text-xs uppercase tracking-widest bg-sky-500/15 text-sky-100 ring-1 ring-sky-400/35'
+                                    : 'text-xs uppercase tracking-widest bg-zinc-800/80 text-slate-200 ring-1 ring-zinc-600/50'
                     }`}
                   >
                     {ch.status}

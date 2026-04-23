@@ -75,7 +75,7 @@ vite.config.ts
 - Título grande del hero (nombre del juego en la portada):
     src/App.tsx → bloque <h1> cerca del inicio del layout (líneas pueden moverse
     con el tiempo; buscar texto "Tomb of" / "Doom" o el subtítulo
-    "Arquitectura económica y roadmap de desarrollo").
+    "Arquitectura económica y roadmap" y el párrafo de Visión debajo).
 
 - Título de la pestaña del navegador:
     index.html → <title>...</title>
