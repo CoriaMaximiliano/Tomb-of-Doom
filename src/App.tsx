@@ -13,7 +13,7 @@ import {
 } from 'lucide-react';
 
 /**
- * Roadmap — Defenders of the Tomb (TOD)
+ * Roadmap — Tomb of Doom (TOD)
  * Pegá este archivo en bolt.new (React + Tailwind + lucide-react).
  *
  * Hero: `tod-hero-gameplay.png` en `public/` (Vite → `${BASE_URL}tod-hero-gameplay.png`).
@@ -373,10 +373,10 @@ const Roadmap = () => {
                 <div className="space-y-4">
                   <h1 className="font-black tracking-tight text-white">
                     <span className="block text-3xl leading-[1.05] text-white/95 md:text-4xl">
-                      Defenders of the
+                      Tomb of
                     </span>
                     <span className="mt-1 block bg-gradient-to-r from-amber-100 via-orange-400 to-orange-600 bg-clip-text text-5xl leading-[0.95] text-transparent drop-shadow-[0_0_32px_rgba(249,115,22,0.28)] md:text-6xl lg:text-7xl">
-                      Tomb
+                      Doom
                     </span>
                     <span className="mt-3 block text-lg font-semibold tracking-tight text-slate-300 md:text-xl">
                       Arquitectura económica y roadmap de desarrollo
@@ -416,7 +416,7 @@ const Roadmap = () => {
               <figure className="relative isolate h-56 w-full overflow-hidden rounded-2xl border border-orange-500/35 bg-zinc-950 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.08),0_24px_60px_-20px_rgba(59,130,246,0.28),0_18px_40px_-24px_rgba(249,115,22,0.22)] ring-1 ring-orange-500/20 sm:h-64 lg:h-auto lg:min-h-0 lg:flex-1">
                 <img
                   src={HERO_GAMEPLAY_SRC}
-                  alt="Defenders of the Tomb: escena 3D del juego con río de lava, puentes de piedra y atmósfera oscura."
+                  alt="Tomb of Doom: escena 3D del juego con río de lava, puentes de piedra y atmósfera oscura."
                   className="absolute inset-0 h-full w-full object-cover object-center"
                   loading="eager"
                   decoding="async"
