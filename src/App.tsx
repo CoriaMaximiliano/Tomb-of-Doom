@@ -16,11 +16,11 @@ import {
  * Roadmap — Tomb of Doom (TOD)
  * Pegá este archivo en bolt.new (React + Tailwind + lucide-react).
  *
- * Hero: video `hero-pantalla-inicial.ogv` + poster `tod-hero-gameplay.png` en `public/`.
+ * Hero: video `hero-pantalla-inicial.ogv` en `public/` (sin poster: si el vídeo no carga,
+ * no queremos mostrar la PNG vieja como si fuera “solo imagen”).
  */
 const baseUrl = import.meta.env.BASE_URL;
 const HERO_VIDEO_SRC = `${baseUrl}hero-pantalla-inicial.ogv`;
-const HERO_VIDEO_POSTER_SRC = `${baseUrl}tod-hero-gameplay.png`;
 
 type RoadmapTone = 'amber' | 'violet' | 'cyan' | 'emerald';
 
@@ -393,15 +393,17 @@ const Roadmap = () => {
               <figure className="relative isolate h-56 w-full overflow-hidden rounded-2xl border border-orange-500/35 bg-zinc-950 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.08),0_24px_60px_-20px_rgba(59,130,246,0.28),0_18px_40px_-24px_rgba(249,115,22,0.22)] ring-1 ring-orange-500/20 sm:h-64 lg:h-auto lg:min-h-0 lg:flex-1">
                 <video
                   src={HERO_VIDEO_SRC}
-                  poster={HERO_VIDEO_POSTER_SRC}
                   className="absolute inset-0 h-full w-full object-cover object-center"
                   autoPlay
                   muted
                   loop
                   playsInline
-                  preload="metadata"
+                  preload="auto"
+                  disablePictureInPicture
                   aria-label="Tomb of Doom: pantalla inicial del juego en bucle, sin sonido."
-                />
+                >
+                  <source src={HERO_VIDEO_SRC} type="video/ogg; codecs=theora" />
+                </video>
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0a0d14]/80 via-transparent to-transparent" />
                 <figcaption className="pointer-events-none absolute inset-x-0 bottom-0 flex items-end px-3 pb-3 pt-12">
                   <span className="rounded-lg border border-orange-500/35 bg-zinc-950/85 px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest text-orange-100 backdrop-blur-sm md:text-[11px]">

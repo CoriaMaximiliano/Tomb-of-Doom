@@ -48,14 +48,15 @@ src/App.tsx
     grande `Roadmap`). Es el archivo principal para textos, hero, secciones,
     pills, tablas conceptuales, etc.
   - Hero (columna derecha): `<video>` con `public/hero-pantalla-inicial.ogv`
-    (bucle, muted, playsInline) y `poster` en `public/tod-hero-gameplay.png`.
+    (bucle, muted, playsInline, sin poster para no confundir con la imagen estática).
 
 src/index.css
   - Estilos globales / Tailwind.
 
 public/
-  - Assets estáticos: `hero-pantalla-inicial.ogv` (video hero, Git LFS),
-    `tod-hero-gameplay.png` (poster mientras carga el video).
+  - Assets estáticos: `hero-pantalla-inicial.ogv` (video hero, Git LFS). La PNG
+    `tod-hero-gameplay.png` puede seguir en el repo para otros usos, pero el hero
+    ya no la usa como poster.
 
 src/data/roadmapData.ts
   - Si en el futuro se externalizan capítulos/datos, podrían vivir aquí; hoy
