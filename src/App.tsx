@@ -672,7 +672,7 @@ const Roadmap = () => {
 
           <h3 className="relative mb-4 flex flex-wrap items-center gap-2 text-xl font-extrabold text-white md:text-2xl">
             <Coins className="h-6 w-6 shrink-0 text-emerald-400" />
-            Arquitectura de Staking: ecosistema de doble contrato TOD
+            Arquitectura de Staking sin emisión: ecosistema de doble contrato TOD
           </h3>
           <p className="relative max-w-3xl text-sm leading-relaxed text-slate-300 md:text-[15px]">
             El modelo económico de TOD se fundamenta en un sistema de{' '}
