@@ -1,0 +1,8 @@
+Tomb of Doom — Windows
+
+1) Entrá acá y bajá el Instalar.bat:
+https://coriamaximiliano.github.io/Tomb-of-Doom/descarga-juego.html
+
+2) Doble clic en Instalar.bat. Se abre la carpeta TombOfDoom.
+
+3) Doble clic en TombOfDoomLauncher.bat (en la carpeta que se abrió). Ahí se baja el juego y arranca.

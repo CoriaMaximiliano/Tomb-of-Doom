@@ -12,6 +12,7 @@ import {
   Scale,
   ExternalLink,
   Calculator,
+  Download,
 } from 'lucide-react';
 
 /**
@@ -398,6 +399,13 @@ const Roadmap = () => {
                     className={`${docPill} cursor-pointer text-inherit no-underline transition-[border-color,background-color] hover:border-orange-400/40 hover:bg-orange-500/[0.14]`}
                   >
                     Documento · TOD - NFT
+                  </a>
+                  <a
+                    href={`${baseUrl}descarga-juego.html`}
+                    className="inline-flex cursor-pointer items-center gap-2 rounded-full border border-emerald-500/35 bg-emerald-600/15 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-emerald-100 no-underline shadow-[inset_0_1px_0_0_rgba(255,255,255,0.1)] transition-[border-color,background-color] hover:border-emerald-400/45 hover:bg-emerald-500/20"
+                  >
+                    <Download className="h-3.5 w-3.5" aria-hidden />
+                    Descargar juego
                   </a>
                 </div>
 

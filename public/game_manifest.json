@@ -1,0 +1,22 @@
+{
+  "version": "1.0.184",
+  "author_name": "Coria Maximiliano Andres del Valle",
+  "net_game_version": "dotpvp-2026-04-24-mronqueue1",
+  "has_pck": true,
+  "hashes": {
+    "game": "6a24d5c27d9dca846f9104d9e56fb5021a1fc87a057b49ebab6ee799ec093468",
+    "pck": "37653eb944e8cdea8e2ddc2cf8dbd67a37febb945f25b7b6187bea469c83e9eb"
+  },
+  "assets": [
+    {
+      "name": "TowerDefense.exe",
+      "sha256": "6a24d5c27d9dca846f9104d9e56fb5021a1fc87a057b49ebab6ee799ec093468",
+      "url": "https://github.com/CoriaMaximiliano/Tomb-of-Doom/releases/download/v1.0.200/TowerDefense.exe"
+    },
+    {
+      "name": "TowerDefense.pck",
+      "sha256": "37653eb944e8cdea8e2ddc2cf8dbd67a37febb945f25b7b6187bea469c83e9eb",
+      "url": "https://github.com/CoriaMaximiliano/Tomb-of-Doom/releases/download/v1.0.200/TowerDefense.pck"
+    }
+  ]
+}

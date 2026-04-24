@@ -1,0 +1,27 @@
+Notas para quien publica el juego (vos o alguien del equipo)
+
+Sitio público: https://coriamaximiliano.github.io/Tomb-of-Doom/descarga-juego.html
+Repo: https://github.com/CoriaMaximiliano/Tomb-of-Doom
+
+La gente baja Instalar.bat desde esa página. Ese bat trae un zip desde la última release:
+  TombOfDoom_client.zip
+Adentro va el launcher en .bat + PowerShell (no hay .exe del launcher para el jugador).
+
+En cada release en GitHub subí estos tres nombres:
+  TombOfDoom_client.zip
+  TowerDefense.exe
+  TowerDefense.pck
+
+En el repo (rama main) tiene que existir el manifiesto JSON, por ejemplo:
+  public/game_manifest.json
+URL raw típica para el zip:
+  https://raw.githubusercontent.com/CoriaMaximiliano/Tomb-of-Doom/main/public/game_manifest.json
+
+En tu PC del proyecto Godot (tower-defense):
+  1) Generá game_manifest.json con UpdateServerMundial\tools\build_public_manifest.py
+     (--out hacia Rout map listo\public\game_manifest.json)
+  2) Armá el zip del cliente: UpdateServerMundial\tools\package_tod_client_zip.py
+     (--manifest-url la de arriba, --author igual al manifiesto, --out al zip; no lo subas a git, solo a la release)
+  3) Commit y push de game_manifest.json + cambios de la web (Instalar.bat, descarga-juego.html, etc.)
+
+Opcional: build_tod_launcher.bat sigue existiendo por si querés un .exe para pruebas LAN; el flujo público usa solo .bat + .ps1.

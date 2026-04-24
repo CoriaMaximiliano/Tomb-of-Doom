@@ -24,3 +24,6 @@ dist-ssr
 
 # Fuente pesada solo para regenerar el hero GIF localmente (no subir a Git).
 public/hero-pantalla-inicial.ogv
+
+# ZIP del cliente para GitHub Release (no versionar el binario en git; subilo a la release a mano).
+public/TombOfDoom_client.zip
