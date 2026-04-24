@@ -663,6 +663,179 @@ const Roadmap = () => {
           ))}
         </div>
 
+        <section
+          id="arquitectura-staking-tod"
+          className="relative mt-12 scroll-mt-24 overflow-hidden rounded-[1.35rem] border border-zinc-600/40 bg-gradient-to-br from-zinc-900/95 via-[#10151f] to-[#141828] p-7 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.08),0_24px_60px_-20px_rgba(52,211,153,0.12)] md:p-10"
+        >
+          <div className="pointer-events-none absolute -right-16 top-0 h-64 w-64 rounded-full bg-emerald-500/10 blur-[90px]" />
+          <div className="pointer-events-none absolute -left-12 bottom-8 h-48 w-48 rounded-full bg-cyan-500/8 blur-[75px]" />
+
+          <h3 className="relative mb-4 flex flex-wrap items-center gap-2 text-xl font-extrabold text-white md:text-2xl">
+            <Coins className="h-6 w-6 shrink-0 text-emerald-400" />
+            Arquitectura de Staking: ecosistema de doble contrato TOD
+          </h3>
+          <p className="relative max-w-3xl text-sm leading-relaxed text-slate-300 md:text-[15px]">
+            El modelo económico de TOD se fundamenta en un sistema de{' '}
+            <span className="text-slate-200">Staking de Utilidad Eficiente</span>. La rentabilidad y
+            el posicionamiento de los activos no son estáticos; dependen del colateral asignado por el
+            usuario en contratos inteligentes específicos, vinculando el valor del token directamente
+            al uso y la competitividad dentro del juego.
+          </p>
+
+          <div className="relative mt-10 space-y-12">
+            <div className="space-y-5">
+              <div className={wpSectionTitle}>
+                <span className="font-mono text-sm font-bold text-emerald-400">1</span>
+                <h4 className="text-lg font-extrabold tracking-tight text-white md:text-xl">
+                  Módulo de rendimiento: contrato de recompensas NFT
+                </h4>
+              </div>
+              <p className="max-w-3xl text-sm leading-relaxed text-slate-300">
+                La productividad económica de un activo NFT está regida por un{' '}
+                <span className="text-slate-200">Índice de Eficiencia Operativa (IEO)</span>. Este
+                índice determina qué porcentaje del potencial del NFT se activa en función del colateral
+                depositado en el contrato de recompensas.
+              </p>
+              <p className="max-w-3xl text-sm leading-relaxed text-slate-300">
+                <span className="font-semibold text-emerald-100/95">Dinámica de eficiencia:</span> el
+                NFT operará de forma proporcional al staking realizado. Si se cubre el{' '}
+                <span className="text-emerald-200">50%</span> del colateral requerido, el activo
+                producirá el <span className="text-emerald-200">50%</span> de su bonus de recompensa. El
+                potencial total (<span className="text-emerald-200">+100%</span> de eficiencia) se
+                alcanza al completar el colateral definido por tier.
+              </p>
+              <p className="text-[11px] font-extrabold uppercase tracking-[0.18em] text-slate-400">
+                Tabla de potencial de rendimiento (100% eficiencia)
+              </p>
+              <div className="overflow-x-auto rounded-2xl border border-zinc-600/50 bg-zinc-950/50 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)]">
+                <table className="w-full min-w-[min(100%,480px)] text-left text-[13px] text-slate-200">
+                  <thead>
+                    <tr className="border-b border-zinc-600/60 bg-zinc-900/85 text-[10px] font-bold uppercase tracking-widest text-slate-400">
+                      <th className="px-4 py-3">Tier</th>
+                      <th className="px-4 py-3">Staking requerido (100%)</th>
+                      <th className="px-4 py-3">Bonus de recompensa</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-zinc-700/60">
+                    {[
+                      ['T1', '100 $TOD', '+1%'],
+                      ['T2', '250 $TOD', '+2%'],
+                      ['T3', '600 $TOD', '+3%'],
+                      ['T4', '1.500 $TOD', '+10%'],
+                      ['T5', '3.000 $TOD', '+15%'],
+                      ['T6', '5.000 $TOD', '+20%'],
+                      ['T7', '10.000 $TOD', '+30%'],
+                    ].map(([tier, stake, bonus]) => (
+                      <tr key={tier} className="bg-zinc-950/40">
+                        <td className="px-4 py-2.5 font-mono font-bold text-emerald-200">{tier}</td>
+                        <td className="px-4 py-2.5 font-mono text-white">{stake}</td>
+                        <td className="px-4 py-2.5 text-slate-300">{bonus}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div className="space-y-5">
+              <div className={wpSectionTitle}>
+                <span className="font-mono text-sm font-bold text-cyan-400">2</span>
+                <h4 className="text-lg font-extrabold tracking-tight text-white md:text-xl">
+                  Módulo competitivo: contrato de posición de torneo
+                </h4>
+              </div>
+              <p className="max-w-3xl text-sm leading-relaxed text-slate-300">
+                Este contrato independiente gestiona la jerarquía en la tabla clasificatoria
+                (leaderboard). Actúa como un multiplicador de puntos globales, optimizando la posición
+                del jugador para el acceso a la bolsa de premios de cada temporada.
+              </p>
+              <p className="text-[11px] font-extrabold uppercase tracking-[0.18em] text-slate-400">
+                Multiplicador de posición en el ranking
+              </p>
+              <div className="overflow-x-auto rounded-2xl border border-zinc-600/50 bg-zinc-950/50 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)]">
+                <table className="w-full min-w-[min(100%,520px)] text-left text-[13px] text-slate-200">
+                  <thead>
+                    <tr className="border-b border-zinc-600/60 bg-zinc-900/85 text-[10px] font-bold uppercase tracking-widest text-slate-400">
+                      <th className="px-4 py-3">Rango de staking</th>
+                      <th className="px-4 py-3">Requisito de bloqueo</th>
+                      <th className="px-4 py-3">Multiplicador de puntos</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-zinc-700/60">
+                    {[
+                      ['Iniciación', '10 $TOD', '+1%'],
+                      ['Competidor', '200 $TOD', '+3%'],
+                      ['Veterano', '1.000 $TOD', '+7%'],
+                      ['Élite', '2.500 $TOD', '+12%'],
+                      ['Leyenda', '5.000 $TOD', '+20%'],
+                    ].map(([rango, lock, mult]) => (
+                      <tr key={rango} className="bg-zinc-950/40">
+                        <td className="px-4 py-2.5 font-semibold text-cyan-100">{rango}</td>
+                        <td className="px-4 py-2.5 font-mono text-white">{lock}</td>
+                        <td className="px-4 py-2.5 text-slate-300">{mult}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div className="space-y-5">
+              <div className={wpSectionTitle}>
+                <span className="font-mono text-sm font-bold text-orange-400">3</span>
+                <h4 className="text-lg font-extrabold tracking-tight text-white md:text-xl">
+                  Pilares de sostenibilidad estratégica
+                </h4>
+              </div>
+              <div className="grid gap-3.5 sm:grid-cols-2">
+                <div className={wpCard}>
+                  <p className="text-sm font-extrabold text-white">Suministro finito</p>
+                  <p className="mt-2 text-[13px] leading-relaxed text-slate-200">
+                    El suministro total está estrictamente limitado a{' '}
+                    <span className="text-orange-200">10.000.000 $TOD</span>. No existe mecanismo de
+                    emisión adicional.
+                  </p>
+                </div>
+                <div className={wpCard}>
+                  <p className="text-sm font-extrabold text-white">Cero inflación por staking</p>
+                  <p className="mt-2 text-[13px] leading-relaxed text-slate-200">
+                    A diferencia de modelos inflacionarios, este sistema no genera nuevos tokens para
+                    pagar recompensas. El valor se redistribuye desde la tesorería y los flujos de
+                    comisiones del ecosistema, protegiendo al holder de la dilución.
+                  </p>
+                </div>
+                <div className={wpCard}>
+                  <p className="text-sm font-extrabold text-white">Justicia contable</p>
+                  <p className="mt-2 text-[13px] leading-relaxed text-slate-200">
+                    Los tokens de recompensas asignados a tiers de NFT que aún no han sido acuñados
+                    (minteados) se derivan automáticamente a la tesorería de premios, incrementando los
+                    incentivos para la comunidad activa.
+                  </p>
+                </div>
+                <div className={wpCard}>
+                  <p className="text-sm font-extrabold text-white">Objetivo de retención</p>
+                  <p className="mt-2 text-[13px] leading-relaxed text-slate-200">
+                    La estructura de doble contrato está diseñada para incentivar el bloqueo de hasta el{' '}
+                    <span className="text-orange-200">40%</span> del suministro total mediante utilidad
+                    real, reduciendo drásticamente la oferta circulante en el mercado abierto.
+                  </p>
+                </div>
+              </div>
+              <div
+                className={`${wpCard} border-emerald-500/25 bg-gradient-to-br from-emerald-500/10 via-zinc-950/80 to-zinc-950/90`}
+              >
+                <p className="text-sm font-extrabold text-white">Compromiso técnico</p>
+                <p className="mt-2 text-[13px] leading-relaxed text-slate-200">
+                  TOD es una maquinaria económica donde la escasez y la utilidad operativa trabajan en
+                  conjunto. Este diseño asegura que el precio del activo se vea respaldado por la
+                  necesidad técnica de los usuarios de mantener liquidez bloqueada para operar al máximo
+                  nivel competitivo.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section className="relative mt-12 overflow-hidden rounded-[1.35rem] border border-zinc-600/40 bg-gradient-to-br from-zinc-900/95 via-[#15101f] to-[#1f1428] p-7 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.08),0_24px_60px_-20px_rgba(249,115,22,0.15)] md:p-10">
           <div className="pointer-events-none absolute -right-20 -top-20 h-72 w-72 rounded-full bg-orange-500/14 blur-[95px]" />
           <div className="pointer-events-none absolute -left-16 bottom-0 h-56 w-56 rounded-full bg-emerald-500/10 blur-[80px]" />
