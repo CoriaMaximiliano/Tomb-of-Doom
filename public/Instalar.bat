@@ -21,7 +21,13 @@ powershell.exe -NoProfile -ExecutionPolicy Bypass -Command ^
 
 if errorlevel 1 (
   echo.
-  echo No se pudo instalar. Revisa la conexion a internet o el antivirus.
+  echo No se pudo instalar. Si el error fue "Not Found" (404), en GitHub falta subir
+  echo el archivo TombOfDoom_client.zip a la ULTIMA release publicada, con ese nombre exacto.
+  echo URL que se intento bajar:
+  echo https://github.com/CoriaMaximiliano/Tomb-of-Doom/releases/latest/download/TombOfDoom_client.zip
+  echo Copiala en el navegador: si da 404, hay que adjuntar el zip en Releases.
+  echo.
+  echo Tambien puede ser internet, firewall o antivirus.
   pause
   exit /b 1
 )

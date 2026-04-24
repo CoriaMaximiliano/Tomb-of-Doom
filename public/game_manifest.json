@@ -5,7 +5,7 @@
   "has_pck": true,
   "hashes": {
     "game": "6a24d5c27d9dca846f9104d9e56fb5021a1fc87a057b49ebab6ee799ec093468",
-    "pck": "37653eb944e8cdea8e2ddc2cf8dbd67a37febb945f25b7b6187bea469c83e9eb"
+    "pck": "c4ad6b3b6b0a065acedbf7bd2e537ecaa72e91f7909ae46d6fd72eff6f08e5f3"
   },
   "assets": [
     {
@@ -15,7 +15,7 @@
     },
     {
       "name": "TowerDefense.pck",
-      "sha256": "37653eb944e8cdea8e2ddc2cf8dbd67a37febb945f25b7b6187bea469c83e9eb",
+      "sha256": "c4ad6b3b6b0a065acedbf7bd2e537ecaa72e91f7909ae46d6fd72eff6f08e5f3",
       "url": "https://github.com/CoriaMaximiliano/Tomb-of-Doom/releases/download/v1.0.200/TowerDefense.pck"
     }
   ]

@@ -1241,6 +1241,19 @@ const Roadmap = () => {
                   </pre>
                 </div>
               </details>
+
+              <a
+                href={`${baseUrl}descarga-juego.html`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-2 rounded-lg border border-emerald-500/40 bg-emerald-600/12 px-2.5 py-2.5 text-xs font-semibold text-slate-100 no-underline transition-[border-color,background-color,box-shadow] hover:border-emerald-400/60 hover:bg-emerald-500/18 hover:shadow-[0_0_18px_-8px_rgba(16,185,129,0.35)]"
+              >
+                <span className="grid h-8 w-8 shrink-0 place-items-center rounded-md bg-emerald-600/25 text-emerald-100">
+                  <Download className="h-4 w-4" aria-hidden />
+                </span>
+                <span className="min-w-0 flex-1 leading-snug">Descarga del juego (Windows)</span>
+                <ExternalLink className="h-3.5 w-3.5 shrink-0 text-slate-300 opacity-60 transition group-hover:opacity-100" />
+              </a>
             </nav>
 
             <div className="mt-3 min-h-[1px] flex-1" aria-hidden />
