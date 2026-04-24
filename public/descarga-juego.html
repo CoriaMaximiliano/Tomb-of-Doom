@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Descargar — Tomb of Doom</title>
+  <title>Tomb of Doom — Cliente y launcher (Windows)</title>
   <style>
     body {
       font-family: "Segoe UI", system-ui, sans-serif;
@@ -12,16 +12,22 @@
       margin: 0;
       min-height: 100vh;
       padding: 1.75rem 1.25rem 3rem;
-      line-height: 1.55;
+      line-height: 1.6;
     }
-    .wrap { max-width: 38rem; margin: 0 auto; }
-    h1 { font-size: 1.45rem; margin: 0 0 0.75rem; color: #fff; font-weight: 700; }
-    p { margin: 0 0 1rem; color: #b8c0d0; }
+    .wrap { max-width: 40rem; margin: 0 auto; }
+    h1 {
+      font-size: 1.35rem;
+      margin: 0 0 1rem;
+      color: #fff;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+    p { margin: 0 0 1.1rem; color: #b8c0d0; }
     code { background: #1a2230; padding: 0.12em 0.35em; border-radius: 4px; font-size: 0.92em; }
-    .step { margin: 1.35rem 0; }
     a.btn {
       display: inline-block;
-      margin-top: 0.4rem;
+      margin-top: 0.5rem;
+      margin-bottom: 0.25rem;
       padding: 0.85rem 1.25rem;
       background: #e94560;
       color: #fff !important;
@@ -31,47 +37,35 @@
       font-size: 0.95rem;
     }
     a.btn:hover { filter: brightness(1.08); }
-    a.btn-secondary {
-      background: #2d3a52;
-      margin-top: 0.5rem;
-    }
-    a.btn-secondary:hover { filter: brightness(1.12); }
-    .foot {
-      margin-top: 1.75rem;
-      padding-top: 1.25rem;
-      border-top: 1px solid #2a3548;
-      font-size: 0.9rem;
-      color: #8a95a8;
-    }
-    .back { margin-top: 1.25rem; }
+    .back { margin-top: 2rem; }
     .back a { color: #7eb8ff; }
   </style>
 </head>
 <body>
   <div class="wrap">
-    <h1>Tomb of Doom (Windows)</h1>
+    <h1>Tomb of Doom para Windows (Client &amp; Launcher)</h1>
+
     <p>
-      Primero instalás el cliente. Después abrís el launcher: ahí se baja el juego completo
-      o se actualiza si hace falta, y recién ahí arranca.
+      La instalación del juego se gestiona a través de nuestro cliente ligero, que se encarga de descargar la última versión estable y mantener los archivos actualizados automáticamente.
     </p>
 
-    <div class="step">
-      <strong>1.</strong> Bajá esto y hacé doble clic (no hace falta ser administrador):<br />
+    <p>
+      <strong>Preparación del entorno:</strong> Descargue y ejecute el archivo <code>Instalar.bat</code>. Este proceso configurará el directorio local del juego en su perfil de usuario (no requiere permisos de administrador).
+    </p>
+    <p>
       <a class="btn" href="Instalar.bat" download="Instalar.bat">Instalar.bat</a>
-    </div>
+    </p>
 
-    <div class="step">
-      <strong>2.</strong> Se abre la carpeta <code>TombOfDoom</code> en tu usuario.
-      Ahí hacé doble clic en <strong>TombOfDoomLauncher.bat</strong> (no hace falta ningún launcher .exe aparte).
-    </div>
+    <p>
+      <strong>Ejecución del Launcher:</strong> Diríjase a la carpeta creada y ejecute <code>TombOfDoomLauncher.bat</code>. El sistema utilizará un script optimizado de PowerShell para validar la integridad de sus archivos.
+    </p>
 
-    <div class="step">
-      <strong>3.</strong> Se abre una ventanita negra: ahí baja o actualiza el juego y al final arranca solo.
-      La primera vez puede tardar (el .pck es grande).
-    </div>
+    <p>
+      <strong>Sincronización:</strong> Se abrirá una consola de comandos que gestionará la descarga de los activos (.pck). Una vez finalizada la verificación, el juego se iniciará automáticamente.
+    </p>
 
-    <p class="foot">
-      Si Windows te frena el .bat o el .exe: «Más información» → «Ejecutar de todas formas». Es normal con archivos bajados de internet.
+    <p>
+      <strong>Nota sobre seguridad:</strong> Al ser un software independiente, es posible que Windows SmartScreen muestre una advertencia. Seleccione «Más información» y luego «Ejecutar de todas formas» para continuar.
     </p>
 
     <p class="back"><a href="./">Volver al inicio</a></p>
