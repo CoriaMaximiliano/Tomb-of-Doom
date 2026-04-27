@@ -1,8 +1,13 @@
 Tomb of Doom — Windows
 
+En GitHub solo hay TowerDefense.exe y TowerDefense.pck (misma carpeta).
+
+Opción A — Instalador en un clic
 1) Entrá acá y bajá el Instalar.bat:
-https://coriamaximiliano.github.io/Tomb-of-Doom/descarga-juego.html
+   https://coriamaximiliano.github.io/Tomb-of-Doom/descarga-juego.html
+2) Doble clic en Instalar.bat. Se bajan el .exe y el .pck a %USERPROFILE%\TombOfDoom.
+3) Doble clic en TowerDefense.exe en esa carpeta.
 
-2) Doble clic en Instalar.bat. Se abre la carpeta TombOfDoom.
-
-3) Doble clic en TombOfDoomLauncher.bat (en la carpeta que se abrió). Ahí se baja el juego y arranca.
+Opción B — Manual
+1) Abrí la última release: https://github.com/CoriaMaximiliano/Tomb-of-Doom/releases/latest
+2) Bajá TowerDefense.exe y TowerDefense.pck, guardalos juntos y ejecutá el .exe.

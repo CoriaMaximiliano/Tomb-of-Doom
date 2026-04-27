@@ -3,25 +3,25 @@ Notas para quien publica el juego (vos o alguien del equipo)
 Sitio público: https://coriamaximiliano.github.io/Tomb-of-Doom/descarga-juego.html
 Repo: https://github.com/CoriaMaximiliano/Tomb-of-Doom
 
-La gente baja Instalar.bat desde esa página. Ese bat trae un zip desde la última release:
-  TombOfDoom_client.zip
-Adentro va el launcher en .bat + PowerShell (no hay .exe del launcher para el jugador).
-
-En cada release en GitHub subí estos tres nombres:
-  TombOfDoom_client.zip
+En cada release en GitHub subí SOLO estos dos nombres (nada de zip del cliente):
   TowerDefense.exe
   TowerDefense.pck
 
+La página ofrece Instalar.bat: ese script baja ambos desde
+  .../releases/latest/download/TowerDefense.exe
+  .../releases/latest/download/TowerDefense.pck
+No hace falta subir TombOfDoom_client.zip ni el flujo viejo con launcher .bat dentro del zip.
+
 En el repo (rama main) tiene que existir el manifiesto JSON, por ejemplo:
   public/game_manifest.json
-URL raw típica para el zip:
+URL raw típica:
   https://raw.githubusercontent.com/CoriaMaximiliano/Tomb-of-Doom/main/public/game_manifest.json
 
 En tu PC del proyecto Godot (tower-defense):
   1) Generá game_manifest.json con UpdateServerMundial\tools\build_public_manifest.py
-     (--out hacia Rout map listo\public\game_manifest.json)
-  2) Armá el zip del cliente: UpdateServerMundial\tools\package_tod_client_zip.py
-     (--manifest-url la de arriba, --author igual al manifiesto, --out al zip; no lo subas a git, solo a la release)
-  3) Commit y push de game_manifest.json + cambios de la web (Instalar.bat, descarga-juego.html, etc.)
+     (--out hacia Rout map listo\public\game_manifest.json), con URLs de assets que apunten
+     a la release (ej. .../releases/download/vX.Y.Z/TowerDefense.exe y .pck).
+  2) Commit y push de game_manifest.json + cambios de la web (Instalar.bat, descarga-juego.html, etc.)
 
-Opcional: build_tod_launcher.bat sigue existiendo por si querés un .exe para pruebas LAN; el flujo público usa solo .bat + .ps1.
+Opcional: package_tod_client_zip.py / TombOfDoom_client.zip ya no forman parte del flujo público
+descrito arriba; build_tod_launcher.bat sigue siendo útil para pruebas LAN con .exe del launcher.

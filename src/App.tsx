@@ -25,6 +25,10 @@ import {
 const baseUrl = import.meta.env.BASE_URL;
 const HERO_MP4_SRC = `${baseUrl}hero-pantalla-inicial.mp4`;
 
+/** Cliente Windows publicado: binarios en la release (TowerDefense.exe + .pck). */
+const WINDOWS_GAME_RELEASE_URL =
+  'https://github.com/CoriaMaximiliano/Tomb-of-Doom/releases/tag/1.0.201';
+
 type RoadmapTone = 'amber' | 'violet' | 'cyan' | 'emerald';
 
 type RoadmapCard = { bold: string; text: string };
@@ -401,11 +405,13 @@ const Roadmap = () => {
                     Documento · TOD - NFT
                   </a>
                   <a
-                    href={`${baseUrl}descarga-juego.html`}
+                    href={WINDOWS_GAME_RELEASE_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="inline-flex cursor-pointer items-center gap-2 rounded-full border border-emerald-500/35 bg-emerald-600/15 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-emerald-100 no-underline shadow-[inset_0_1px_0_0_rgba(255,255,255,0.1)] transition-[border-color,background-color] hover:border-emerald-400/45 hover:bg-emerald-500/20"
                   >
                     <Download className="h-3.5 w-3.5" aria-hidden />
-                    Descargar juego
+                    Descarga Windows (GitHub)
                   </a>
                 </div>
 
@@ -918,6 +924,18 @@ const Roadmap = () => {
                 economía frente a la volatilidad sistémica del entorno web3.
               </p>
             </div>
+            <p className="mt-6">
+              <a
+                href={WINDOWS_GAME_RELEASE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-xl border border-emerald-500/40 bg-emerald-600/15 px-4 py-2.5 text-sm font-bold text-emerald-50 no-underline shadow-[inset_0_1px_0_0_rgba(255,255,255,0.08)] transition-[border-color,background-color] hover:border-emerald-400/55 hover:bg-emerald-500/25"
+              >
+                <Download className="h-4 w-4 shrink-0" aria-hidden />
+                Descarga Windows — release 1.0.201 en GitHub
+                <ExternalLink className="h-3.5 w-3.5 shrink-0 opacity-70" aria-hidden />
+              </a>
+            </p>
           </div>
 
           <div className="relative mt-12 space-y-14">
@@ -1243,7 +1261,7 @@ const Roadmap = () => {
               </details>
 
               <a
-                href={`${baseUrl}descarga-juego.html`}
+                href={WINDOWS_GAME_RELEASE_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group flex items-center gap-2 rounded-lg border border-emerald-500/40 bg-emerald-600/12 px-2.5 py-2.5 text-xs font-semibold text-slate-100 no-underline transition-[border-color,background-color,box-shadow] hover:border-emerald-400/60 hover:bg-emerald-500/18 hover:shadow-[0_0_18px_-8px_rgba(16,185,129,0.35)]"
@@ -1251,7 +1269,7 @@ const Roadmap = () => {
                 <span className="grid h-8 w-8 shrink-0 place-items-center rounded-md bg-emerald-600/25 text-emerald-100">
                   <Download className="h-4 w-4" aria-hidden />
                 </span>
-                <span className="min-w-0 flex-1 leading-snug">Descarga del juego (Windows)</span>
+                <span className="min-w-0 flex-1 leading-snug">Descarga Windows (GitHub)</span>
                 <ExternalLink className="h-3.5 w-3.5 shrink-0 text-slate-300 opacity-60 transition group-hover:opacity-100" />
               </a>
             </nav>

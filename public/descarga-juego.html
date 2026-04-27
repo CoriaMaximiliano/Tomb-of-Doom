@@ -28,6 +28,7 @@
       display: inline-block;
       margin-top: 0.5rem;
       margin-bottom: 0.25rem;
+      margin-right: 0.5rem;
       padding: 0.85rem 1.25rem;
       background: #e94560;
       color: #fff !important;
@@ -36,9 +37,15 @@
       font-weight: 700;
       font-size: 0.95rem;
     }
+    a.btn.secondary {
+      background: #2a3548;
+      color: #e8eaef !important;
+    }
     a.btn:hover { filter: brightness(1.08); }
     .back { margin-top: 2rem; }
     .back a { color: #7eb8ff; }
+    ul { margin: 0 0 1.1rem; padding-left: 1.25rem; color: #b8c0d0; }
+    li { margin-bottom: 0.35rem; }
   </style>
 </head>
 <body>
@@ -46,26 +53,43 @@
     <h1>Tomb of Doom para Windows (Client &amp; Launcher)</h1>
 
     <p>
-      La instalación del juego se gestiona a través de nuestro cliente ligero, que se encarga de descargar la última versión estable y mantener los archivos actualizados automáticamente.
+      La descarga oficial del build actual está en GitHub, en la release etiquetada
+      <strong>1.0.201</strong>. Abrí la página del release y descargá los dos binarios desde «Assets».
+    </p>
+    <p>
+      <a class="btn" href="https://github.com/CoriaMaximiliano/Tomb-of-Doom/releases/tag/1.0.201" rel="noopener noreferrer">Abrir release 1.0.201 en GitHub</a>
     </p>
 
     <p>
-      <strong>Preparación del entorno:</strong> Descargue y ejecute el archivo <code>Instalar.bat</code>. Este proceso configurará el directorio local del juego en su perfil de usuario (no requiere permisos de administrador).
-    </p>
-    <p>
-      <a class="btn" href="Instalar.bat" download="Instalar.bat">Instalar.bat</a>
+      En esa release el juego va <strong>solo</strong> con <code>TowerDefense.exe</code> y <code>TowerDefense.pck</code> en la misma carpeta; ejecutá el <code>.exe</code>.
     </p>
 
     <p>
-      <strong>Ejecución del Launcher:</strong> Diríjase a la carpeta creada y ejecute <code>TombOfDoomLauncher.bat</code>. El sistema utilizará un script optimizado de PowerShell para validar la integridad de sus archivos.
+      <strong>Instalación rápida (última release):</strong> si preferís que se bajen solo los dos archivos automáticamente, usá <code>Instalar.bat</code> (apunta a la última release publicada en GitHub, no a un tag fijo).
+    </p>
+    <p>
+      <a class="btn secondary" href="Instalar.bat" download="Instalar.bat">Instalar.bat</a>
     </p>
 
     <p>
-      <strong>Sincronización:</strong> Se abrirá una consola de comandos que gestionará la descarga de los activos (.pck). Una vez finalizada la verificación, el juego se iniciará automáticamente.
+      <strong>Descarga directa de esta versión (1.0.201):</strong> solo si esos archivos están adjuntos en el release con estos nombres exactos.
+    </p>
+    <p>
+      <a class="btn secondary" href="https://github.com/CoriaMaximiliano/Tomb-of-Doom/releases/download/1.0.201/TowerDefense.exe">TowerDefense.exe</a>
+      <a class="btn secondary" href="https://github.com/CoriaMaximiliano/Tomb-of-Doom/releases/download/1.0.201/TowerDefense.pck">TowerDefense.pck</a>
     </p>
 
     <p>
-      <strong>Nota sobre seguridad:</strong> Al ser un software independiente, es posible que Windows SmartScreen muestre una advertencia. Seleccione «Más información» y luego «Ejecutar de todas formas» para continuar.
+      El roadmap del juego enlaza a la misma release:
+      <a href="https://coriamaximiliano.github.io/Tomb-of-Doom/#documento-tod-nft" style="color:#7eb8ff;">Tomb of Doom — documento TOD · NFT</a>.
+    </p>
+
+    <p>
+      <strong>Actualizaciones (quien publica):</strong> al publicar una release nueva, adjuntá <code>TowerDefense.exe</code> y <code>TowerDefense.pck</code> y actualizá <code>public/game_manifest.json</code> en el repo.
+    </p>
+
+    <p>
+      <strong>Nota sobre seguridad:</strong> Windows SmartScreen puede advertir; elegí «Más información» y «Ejecutar de todas formas» si confiás en el origen.
     </p>
 
     <p class="back"><a href="./">Volver al inicio</a></p>

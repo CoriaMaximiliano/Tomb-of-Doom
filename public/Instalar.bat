@@ -3,29 +3,36 @@ setlocal EnableExtensions
 chcp 65001 >nul
 title Tomb of Doom — instalador
 echo.
-echo Bajando el cliente (Launcher + configuracion) en tu carpeta de usuario...
+echo Bajando TowerDefense.exe y TowerDefense.pck (ultima release de GitHub)...
 echo Carpeta: %USERPROFILE%\TombOfDoom
 echo.
 
 powershell.exe -NoProfile -ExecutionPolicy Bypass -Command ^
   "$ErrorActionPreference='Stop';" ^
-  "$u='https://github.com/CoriaMaximiliano/Tomb-of-Doom/releases/latest/download/TombOfDoom_client.zip';" ^
+  "$base='https://github.com/CoriaMaximiliano/Tomb-of-Doom/releases/latest/download/';" ^
   "$nc=[DateTimeOffset]::UtcNow.ToUnixTimeMilliseconds();" ^
-  "$z=Join-Path $env:TEMP ('tod_client_'+[guid]::NewGuid().ToString('n')+'.zip');" ^
   "$d=Join-Path $env:USERPROFILE 'TombOfDoom';" ^
-  "Invoke-WebRequest -Uri ($u+'?nocache='+$nc) -Headers @{'Cache-Control'='no-store'} -UseBasicParsing -OutFile $z;" ^
   "[void](New-Item -ItemType Directory -Path $d -Force);" ^
-  "Expand-Archive -LiteralPath $z -DestinationPath $d -Force;" ^
-  "Remove-Item -LiteralPath $z -Force -ErrorAction SilentlyContinue;" ^
+  "$exeTmp=Join-Path $env:TEMP ('tod_exe_'+[guid]::NewGuid().ToString('n')+'.tmp');" ^
+  "$pckTmp=Join-Path $env:TEMP ('tod_pck_'+[guid]::NewGuid().ToString('n')+'.tmp');" ^
+  "try {" ^
+  "  Invoke-WebRequest -Uri ($base+'TowerDefense.exe?nocache='+$nc) -Headers @{'Cache-Control'='no-store'} -UseBasicParsing -OutFile $exeTmp;" ^
+  "  Invoke-WebRequest -Uri ($base+'TowerDefense.pck?nocache='+$nc) -Headers @{'Cache-Control'='no-store'} -UseBasicParsing -OutFile $pckTmp;" ^
+  "  Move-Item -LiteralPath $exeTmp -Destination (Join-Path $d 'TowerDefense.exe') -Force;" ^
+  "  Move-Item -LiteralPath $pckTmp -Destination (Join-Path $d 'TowerDefense.pck') -Force;" ^
+  "} finally {" ^
+  "  Remove-Item -LiteralPath $exeTmp -Force -ErrorAction SilentlyContinue;" ^
+  "  Remove-Item -LiteralPath $pckTmp -Force -ErrorAction SilentlyContinue;" ^
+  "}" ^
   "Start-Process explorer.exe -ArgumentList $d"
 
 if errorlevel 1 (
   echo.
   echo No se pudo instalar. Si el error fue "Not Found" (404), en GitHub falta subir
-  echo el archivo TombOfDoom_client.zip a la ULTIMA release publicada, con ese nombre exacto.
-  echo URL que se intento bajar:
-  echo https://github.com/CoriaMaximiliano/Tomb-of-Doom/releases/latest/download/TombOfDoom_client.zip
-  echo Copiala en el navegador: si da 404, hay que adjuntar el zip en Releases.
+  echo TowerDefense.exe y TowerDefense.pck a la ULTIMA release publicada, con esos nombres exactos.
+  echo URLs:
+  echo https://github.com/CoriaMaximiliano/Tomb-of-Doom/releases/latest/download/TowerDefense.exe
+  echo https://github.com/CoriaMaximiliano/Tomb-of-Doom/releases/latest/download/TowerDefense.pck
   echo.
   echo Tambien puede ser internet, firewall o antivirus.
   pause
@@ -34,7 +41,7 @@ if errorlevel 1 (
 
 echo.
 echo Listo. Se abrio la carpeta TombOfDoom.
-echo Ahora hace doble clic en TombOfDoomLauncher.bat
+echo Ejecuta TowerDefense.exe (debe estar junto a TowerDefense.pck).
 echo.
 pause
 endlocal
