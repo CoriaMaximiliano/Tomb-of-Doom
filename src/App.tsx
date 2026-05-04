@@ -871,6 +871,33 @@ const Roadmap = () => {
             </p>
 
             <nav className="mt-4 flex flex-col gap-2" aria-label={t.asideNavAria}>
+              <details className="rounded-lg border border-orange-500/35 bg-zinc-950/75 text-left transition-[border-color,box-shadow] open:border-orange-400/45 open:shadow-[0_0_20px_-10px_rgba(249,115,22,0.2)]">
+                <summary className="flex cursor-pointer list-none items-center gap-2 px-2.5 py-2.5 text-xs font-semibold text-slate-100 outline-none marker:content-none [&::-webkit-details-marker]:hidden">
+                  <span className="grid h-8 w-8 shrink-0 place-items-center rounded-md bg-orange-500/20 text-orange-100">
+                    <Calculator className="h-4 w-4" aria-hidden />
+                  </span>
+                  <span className="min-w-0 flex-1 leading-snug">{t.asideMathDetail}</span>
+                </summary>
+                <div className="max-h-[min(70vh,480px)] overflow-y-auto overscroll-contain border-t border-orange-500/20 bg-[#0a0c12]/95 px-2 py-2">
+                  <pre className="whitespace-pre-wrap break-words font-sans text-[9px] leading-relaxed text-slate-300">
+                    {desgloseDoc}
+                  </pre>
+                </div>
+              </details>
+
+              <a
+                href={GAME_TUTORIAL_YOUTUBE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-2 rounded-lg border border-red-500/40 bg-red-600/10 px-2.5 py-2.5 text-xs font-semibold text-slate-100 no-underline transition-[border-color,background-color,box-shadow] hover:border-red-500/70 hover:bg-red-600/18 hover:shadow-[0_0_20px_-8px_rgba(239,68,68,0.4)]"
+              >
+                <span className="grid h-8 w-8 shrink-0 place-items-center rounded-md bg-red-600/30 text-red-50">
+                  <Youtube className="h-4 w-4" aria-hidden />
+                </span>
+                <span className="min-w-0 flex-1 leading-snug">{t.asideTutorial}</span>
+                <ExternalLink className="h-3.5 w-3.5 shrink-0 text-slate-300 opacity-60 transition group-hover:opacity-100" />
+              </a>
+
               <a
                 href="https://discord.gg/qAVWRgWhSe"
                 target="_blank"
@@ -895,33 +922,6 @@ const Roadmap = () => {
                 <span className="min-w-0 flex-1 truncate">X</span>
                 <ExternalLink className="h-3.5 w-3.5 shrink-0 text-slate-300 opacity-60 transition group-hover:opacity-100" />
               </a>
-
-              <a
-                href={GAME_TUTORIAL_YOUTUBE_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex items-center gap-2 rounded-lg border border-red-500/40 bg-red-600/10 px-2.5 py-2.5 text-xs font-semibold text-slate-100 no-underline transition-[border-color,background-color,box-shadow] hover:border-red-500/70 hover:bg-red-600/18 hover:shadow-[0_0_20px_-8px_rgba(239,68,68,0.4)]"
-              >
-                <span className="grid h-8 w-8 shrink-0 place-items-center rounded-md bg-red-600/30 text-red-50">
-                  <Youtube className="h-4 w-4" aria-hidden />
-                </span>
-                <span className="min-w-0 flex-1 leading-snug">{t.asideTutorial}</span>
-                <ExternalLink className="h-3.5 w-3.5 shrink-0 text-slate-300 opacity-60 transition group-hover:opacity-100" />
-              </a>
-
-              <details className="rounded-lg border border-orange-500/35 bg-zinc-950/75 text-left transition-[border-color,box-shadow] open:border-orange-400/45 open:shadow-[0_0_20px_-10px_rgba(249,115,22,0.2)]">
-                <summary className="flex cursor-pointer list-none items-center gap-2 px-2.5 py-2.5 text-xs font-semibold text-slate-100 outline-none marker:content-none [&::-webkit-details-marker]:hidden">
-                  <span className="grid h-8 w-8 shrink-0 place-items-center rounded-md bg-orange-500/20 text-orange-100">
-                    <Calculator className="h-4 w-4" aria-hidden />
-                  </span>
-                  <span className="min-w-0 flex-1 leading-snug">{t.asideMathDetail}</span>
-                </summary>
-                <div className="max-h-[min(70vh,480px)] overflow-y-auto overscroll-contain border-t border-orange-500/20 bg-[#0a0c12]/95 px-2 py-2">
-                  <pre className="whitespace-pre-wrap break-words font-sans text-[9px] leading-relaxed text-slate-300">
-                    {desgloseDoc}
-                  </pre>
-                </div>
-              </details>
 
               <a
                 href={WINDOWS_GAME_RELEASE_URL}
