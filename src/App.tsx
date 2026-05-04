@@ -411,7 +411,7 @@ const Roadmap = () => {
                     className="inline-flex cursor-pointer items-center gap-2 rounded-full border border-emerald-500/35 bg-emerald-600/15 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-emerald-100 no-underline shadow-[inset_0_1px_0_0_rgba(255,255,255,0.1)] transition-[border-color,background-color] hover:border-emerald-400/45 hover:bg-emerald-500/20"
                   >
                     <Download className="h-3.5 w-3.5" aria-hidden />
-                    Descarga Windows (GitHub)
+                    Descarga de Windows y Android (GitHub)
                   </a>
                 </div>
 
@@ -932,7 +932,7 @@ const Roadmap = () => {
                 className="inline-flex items-center gap-2 rounded-xl border border-emerald-500/40 bg-emerald-600/15 px-4 py-2.5 text-sm font-bold text-emerald-50 no-underline shadow-[inset_0_1px_0_0_rgba(255,255,255,0.08)] transition-[border-color,background-color] hover:border-emerald-400/55 hover:bg-emerald-500/25"
               >
                 <Download className="h-4 w-4 shrink-0" aria-hidden />
-                Descarga Windows — release 1.0.201 en GitHub
+                Descarga de Windows y Android — release 1.0.201 en GitHub
                 <ExternalLink className="h-3.5 w-3.5 shrink-0 opacity-70" aria-hidden />
               </a>
             </p>
@@ -1269,7 +1269,7 @@ const Roadmap = () => {
                 <span className="grid h-8 w-8 shrink-0 place-items-center rounded-md bg-emerald-600/25 text-emerald-100">
                   <Download className="h-4 w-4" aria-hidden />
                 </span>
-                <span className="min-w-0 flex-1 leading-snug">Descarga Windows (GitHub)</span>
+                <span className="min-w-0 flex-1 leading-snug">Descarga de Windows y Android (GitHub)</span>
                 <ExternalLink className="h-3.5 w-3.5 shrink-0 text-slate-300 opacity-60 transition group-hover:opacity-100" />
               </a>
             </nav>
