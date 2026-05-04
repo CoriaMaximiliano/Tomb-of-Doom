@@ -935,8 +935,6 @@ const Roadmap = () => {
                 <span className="min-w-0 flex-1 leading-snug">{t.downloadShort}</span>
                 <ExternalLink className="h-3.5 w-3.5 shrink-0 text-slate-300 opacity-60 transition group-hover:opacity-100" />
               </a>
-
-              <LangToggle className="w-full justify-center" />
             </nav>
 
             <div className="mt-3 min-h-[1px] flex-1" aria-hidden />
