@@ -29,6 +29,7 @@ export type UiPack = {
   phaseProgress: string;
   asideTitle: string;
   asideNavAria: string;
+  asideTutorial: string;
   asideMathDetail: string;
   stakingTitle: string;
   stakingLead: string;
@@ -159,6 +160,7 @@ const ES: UiPack = {
   phaseProgress: 'Progreso de Fase',
   asideTitle: 'Enlaces',
   asideNavAria: 'Redes y comunidad',
+  asideTutorial: 'Tutorial del Juego',
   asideMathDetail: 'Desglose matemático de emisión NFT',
   stakingTitle: 'Arquitectura de Staking sin emisión: ecosistema de doble contrato TOD',
   stakingLead:
@@ -351,6 +353,7 @@ const EN: UiPack = {
   phaseProgress: 'Phase progress',
   asideTitle: 'Links',
   asideNavAria: 'Social & community',
+  asideTutorial: 'Game tutorial',
   asideMathDetail: 'NFT emission math breakdown',
   stakingTitle: 'Zero-emission staking architecture: dual-contract TOD ecosystem',
   stakingLead:

@@ -14,6 +14,7 @@ import {
   Calculator,
   Download,
   Languages,
+  Youtube,
 } from 'lucide-react';
 import type { ChapterStatusVariant, Lang, RoadmapChapter, RoadmapTone } from './App.types';
 import { CHAPTERS_EN, CHAPTERS_ES } from './roadmapChapters';
@@ -29,6 +30,9 @@ const HERO_MP4_SRC = `${baseUrl}hero-pantalla-inicial.mp4`;
 
 const WINDOWS_GAME_RELEASE_URL =
   'https://github.com/CoriaMaximiliano/Tomb-of-Doom/releases/tag/1.0.201';
+
+const GAME_TUTORIAL_YOUTUBE_URL =
+  'https://www.youtube.com/watch?v=xkCtHO7Lk8I&t=125s';
 
 function statusBadgeClass(variant: ChapterStatusVariant, progress: number): string {
   if (progress > 0) {
@@ -889,6 +893,19 @@ const Roadmap = () => {
                   X
                 </span>
                 <span className="min-w-0 flex-1 truncate">X</span>
+                <ExternalLink className="h-3.5 w-3.5 shrink-0 text-slate-300 opacity-60 transition group-hover:opacity-100" />
+              </a>
+
+              <a
+                href={GAME_TUTORIAL_YOUTUBE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-2 rounded-lg border border-red-500/40 bg-red-600/10 px-2.5 py-2.5 text-xs font-semibold text-slate-100 no-underline transition-[border-color,background-color,box-shadow] hover:border-red-500/70 hover:bg-red-600/18 hover:shadow-[0_0_20px_-8px_rgba(239,68,68,0.4)]"
+              >
+                <span className="grid h-8 w-8 shrink-0 place-items-center rounded-md bg-red-600/30 text-red-50">
+                  <Youtube className="h-4 w-4" aria-hidden />
+                </span>
+                <span className="min-w-0 flex-1 leading-snug">{t.asideTutorial}</span>
                 <ExternalLink className="h-3.5 w-3.5 shrink-0 text-slate-300 opacity-60 transition group-hover:opacity-100" />
               </a>
 
